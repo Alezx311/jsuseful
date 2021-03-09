@@ -8,24 +8,14 @@ class Values {
   static musicInterval = () => Random.arrayElement(INTERVAL_CHARS)
   static color = () => Random.arrayElement(COLOR_CODES)
   static colorName = () => Random.arrayElement(COLOR_NAMES)
-  static date = () => new Date(Date.now()).toISOString()
-  static time = () => new Date(Date.now()).toLocaleTimeString()
-  static replaceByDictionary = ({ source, dictionary }) => {
-    if (!source || !dictionary) {
-      throw new Error(`source and dictionary is required`)
-    }
-
-    const words = Object.keys(dictionary)
-      .map(v => `\\b${v}\\b`)
-      .join('|')
-
-    const regexp = new RegExp(words, 'gi')
-    const regFunc = word => `${dictionary?.[word] ?? word}`
-
-    const result = `${source}`.replace(regexp, regFunc)
-
-    return result
-  }
+  static time = time => new Date(Date.now())
+  static timeDifference = time => this.time() - time
+  static timestamp = () => this.time().toLocaleTimeString()
+  static datestamp = () => this.time().toISOString()
+  static objClone = obj => Object.assign({}, obj)
+  static objKeys = obj => Object.keys(obj)
+  static objValues = obj => Object.values(obj)
+  static objEntries = obj => Object.entries(obj)
 }
 
 module.exports = Values
