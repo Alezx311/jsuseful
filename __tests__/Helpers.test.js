@@ -14,10 +14,6 @@ describe('Test of Helpers.Check', () => {
     expect(Check.all(EXAMPLE_ARRAY)).toBe(true)
     expect(Check.all([1, 2], null)).toBe(false)
   })
-  it('Should return true on valid object', () => {
-    expect(Check.object(EXAMPLE_OBJECT)).toBe(true)
-    expect(Check.object('sdfsdf')).toBe(false)
-  })
   it('Should return true on valid number', () => {
     expect(Check.number(123123)).toBe(true)
     expect(Check.number('sdfsdf')).toBe(false)
