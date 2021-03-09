@@ -1,6 +1,5 @@
 class Check {
   static array = arr => !!(Array.isArray(arr) && arr.length)
-  static object = obj => !!(typeof obj === 'object' && Object.assign({}, obj, { ...obj }))
   static all = (v, ...rest) => !!([v, ...rest].length && [v, ...rest].length === [v, ...rest].filter(Boolean).length)
   static number = num => typeof num === 'number'
 }

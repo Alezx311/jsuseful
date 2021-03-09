@@ -2,13 +2,20 @@
   "name": "jsuseful",
   "version": "1.0.0",
   "description": "Useful functions for developing",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alezx311/js-useful.git"
+  },
+  "keywords": [
+    "Simple function for js"
+  ],
   "author": "alezx311 <alezx311@gmail.com",
   "license": "ISC",
+  "homepage": "https://github.com/Alezx311/js-useful.git",
   "devDependencies": {
     "jest": "^26.6.3",
     "joi": "^17.4.0"
