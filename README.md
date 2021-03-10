@@ -1,3 +1,7 @@
+# Download
+
+[NPM](https://www.npmjs.com/package/jsuseful)
+
 # Usage
 
     const Helpers = require('jsuseful')
@@ -90,16 +94,6 @@ or
 
     console.log(Random.objectEntry({ 'words':   'words', arr: [1,2,3]}))
     // -> ['words': 'words']
-
-## Helpers.Console
-
-    const { Console } = require('jsuseful')
-
-- transform
-- show
-- showRandom
-- showCute
-- showError
 
 ## Helpers.FileSystem
 
