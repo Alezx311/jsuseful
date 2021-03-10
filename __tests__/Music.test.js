@@ -50,3 +50,23 @@ describe('Test Music.noteValues()', () => {
     expect(Music.noteValues()).toBeTruthy()
   })
 })
+describe('Test Music.noteParse()', () => {
+  it('Should return noteParse', () => {
+    expect(Music.noteParse('C2')).toEqual({ note: 'C2', char: 'C', octave: '2' })
+  })
+})
+describe('Test Music.noteIndex()', () => {
+  it('Should return noteIndex', () => {
+    expect(Music.noteIndex('C2')).toEqual(3)
+  })
+})
+describe('Test Music.noteStep()', () => {
+  it('Should return noteStep', () => {
+    expect(Music.noteStep('C2', 34)).toEqual('Bb5')
+  })
+})
+describe('Test Music.noteSteps()', () => {
+  it('Should return noteSteps', () => {
+    expect(Music.noteSteps('C2', 5)).toEqual(['C2', 'Db2', 'D2', 'Fb2', 'F2'])
+  })
+})

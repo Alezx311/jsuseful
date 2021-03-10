@@ -1,6 +1,6 @@
 {
   "name": "jsuseful",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Useful functions for developing",
   "main": "src/index",
   "scripts": {
@@ -11,15 +11,23 @@
     "url": "git+https://github.com/Alezx311/js-useful.git"
   },
   "keywords": [
-    "Simple function for js"
+    "node",
+    "random",
+    "array",
+    "values",
+    "number",
+    "object",
+    "useful",
+    "console",
+    "file",
+    "helpers"
   ],
   "author": "alezx311 <alezx311@gmail.com",
   "license": "ISC",
   "homepage": "https://github.com/Alezx311/js-useful.git",
   "dependencies": {
     "chalk": "^4.1.0",
-    "gradient-string": "^1.2.0",
-    "joi": "^17.4.0"
+    "gradient-string": "^1.2.0"
   },
   "devDependencies": {
     "jest": "^26.6.3"

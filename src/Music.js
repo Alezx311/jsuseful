@@ -11,7 +11,41 @@ class Music {
   static duration = () => `${this.durationChar()}${Random.powerOfTwo(4)}`
   static interval = () => Random.arrayElement(INTERVAL_CHARS)
   static velocity = () => 1 - Random.range() / 3
-  static noteValues = noteChar => ({ noteChar, duration: this.duration(), velocity: this.velocity() })
+  static noteValues = note => ({ note, duration: this.duration(), velocity: this.velocity() })
+  static noteParse = str => {
+    let [note, char, octave] = str.trim().match(/^([a-g#]+)(\d)$/i)
+
+    if (!char) {
+      throw new Error(`Invalid char on parsing note: ${str} ${[note, char, octave]}`)
+    }
+    if (!octave) {
+      console.error(`Invalid octave on parsing note: ${str} ${[note, char, octave]}`)
+      octave = 1
+    }
+
+    return { note, char, octave }
+  }
+  static noteIndex = note => NOTES.indexOf(note.trim().match(/^([a-g#]+)/i)?.[1])
+  static noteStep = (noteChar, step = 1) => {
+    let { note, char, octave } = this.noteParse(noteChar)
+    let noteIndex = this.noteIndex(char)
+    let newIndex = noteIndex + step
+
+    if (newIndex === NOTES.length) {
+      octave = Number(octave) + 1
+      newIndex = 0
+    } else if (newIndex > NOTES.length) {
+      octave = Number(octave) + Math.floor(newIndex / NOTES.length)
+      newIndex = newIndex % NOTES.length
+    }
+
+    return `${NOTES[newIndex]}${octave}`
+  }
+  static noteSteps = (note, size = 24) => {
+    return Array(size)
+      .fill(note)
+      .map((v, i) => this.noteStep(v, i))
+  }
 }
 
 module.exports = Music
