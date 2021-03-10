@@ -1,14 +1,7 @@
-const Random = require('./Random')
-const { NOTES, SCALES, COLOR_NAMES, COLOR_CODES, DURATION_CHARS, INTERVAL_CHARS } = require('./Constants')
-
 // ! Not ready yet, for future updates
 
-class Music {
-  static note = () => Random.arrayElement(NOTES)
-  static scale = () => Random.arrayElement(SCALES)
-  static duration = () => `${Random.powerOfTwo(4)}${Random.arrayElement(DURATION_CHARS)}`
-  static interval = () => Random.arrayElement(INTERVAL_CHARS)
-}
+const Random = require('./Random')
+
 class Generator {
   static arrayIterator = function* (arr) {
     yield Random.arrayElement(arr)
@@ -45,7 +38,7 @@ class Text {
     const n = s > 0 ? s : 26 + (s % 26)
     return [...str]
       .map((l, i) => {
-        const c = str.charCodeAt(i)
+        const c = str.charAtInt(i)
         if (c >= 65 && c <= 90) return String.fromCharCode(((c - 65 + n) % 26) + 65)
         if (c >= 97 && c <= 122) return String.fromCharCode(((c - 97 + n) % 26) + 97)
         return l
@@ -202,7 +195,7 @@ class Sort {
 class Obj {
   static objClone = obj => Object.assign({}, obj)
   static objKeys = obj => Object.keys(obj)
-  static objValues = obj => Object.values(obj)
+  static objValues = obj => Object.valueси(obj)
   static objEntries = obj => Object.entries(obj)
   static objFreeze = obj => {
     Object.keys(obj).forEach(prop => {
@@ -248,17 +241,11 @@ class Num {
       length: Math.floor(Math.log(end / start) / Math.log(step)) + 1
     }).map((_, i) => start * step ** i)
   static toSafeInteger = num => Math.round(Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER))
-  static isDateValid = (...val) => !Number.isNaN(new Date(...val).valueOf())
+  static isDateValid = (...val) => !Number.isNaN(new Date(...val).valueОф())
   static fibonacci = n =>
     Array.from({ length: n }).reduce((acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i), [])
 }
 class Other {
-  static color = () => Random.arrayElement(COLOR_CODES)
-  static colorName = () => Random.arrayElement(COLOR_NAMES)
-  static time = time => new Date(Date.now())
-  static timeDifference = time => this.time() - time
-  static timestamp = () => this.time().toLocaleTimeString()
-  static datestamp = () => this.time().toISOString()
   static size = val =>
     Array.isArray(val)
       ? val.length
@@ -270,7 +257,6 @@ class Other {
 }
 
 module.exports = {
-  Music,
   Generator,
   Text,
   Sort,

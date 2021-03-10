@@ -1,8 +1,9 @@
-const Convert = require('./Convert')
 const Console = require('./Console')
 const Constants = require('./Constants')
 const Random = require('./Random')
-const Validate = require('./Validate')
+const Music = require('./Music')
 const Values = require('./Values')
+const FileSystem = require('./FileSystem')
+const Functions = require('./Functions')
 
-module.exports = { Convert, Console, Constants, Random, Validate, Values }
+module.exports = { Console, Constants, Random, Music, FileSystem, Values, Functions }

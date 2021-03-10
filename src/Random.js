@@ -3,10 +3,10 @@ class Random {
   static number = (min = 1, max = 10) => Math.floor(Math.random() * (max - min) + this.range()) + min
   static powerOfTwo = (max = 10) => 2 ** this.number(1, max)
   static boolean = (chance = 50) => this.number(1, 100) > chance
-  static array = (size = 10, value = 1) => Array(size).fill(value)
-  static numbers = (size = 10, min = 1, max = 100) => this.array(size).map(() => this.number(min, max))
-  static arrayValues = (arr, size = 10) => this.array(size).map(() => this.arrayElement(arr))
-  static arraySequence = (start = 1, size = 10) => this.array(size).map((v, i) => start + i)
+  static array = (size = 10, cb = () => this.number()) => Array(size).fill(1).map(cb)
+  static numbers = (size = 10, min = 1, max = 100) => this.array(size, (min, max) => this.number(min.max))
+  static arrayValues = (arr, size = 10) => this.array(size, () => this.arrayElement(arr))
+  static arraySequence = (start = 1, size = 10) => this.array(size, (v, i) => start + i)
   static arrayUnicals = arr => [...new Set([...arr])]
   static arrayShuffle = arr => arr.sort(() => this.range() - 0.5)
   static arrayIndex = arr => this.number(0, arr.length - 1)

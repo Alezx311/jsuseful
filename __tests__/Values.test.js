@@ -1,70 +1,60 @@
 const { Values } = require('../src')
 
-// musicNote
-describe('Test Values.musicNote', () => {
-  it('Should return musicNote value', () => {
-    expect(Values.musicNote()).toBeTruthy()
-  })
-})
-// musicScale
-describe('Test Values.musicScale', () => {
-  it('Should return musicScale value', () => {
-    expect(Values.musicScale()).toBeTruthy()
-  })
-})
-// musicDuration
-describe('Test Values.musicDuration', () => {
-  it('Should return musicDuration value', () => {
-    expect(Values.musicDuration()).toBeTruthy()
-  })
-})
-// musicInterval
-describe('Test Values.musicInterval', () => {
-  it('Should return musicInterval value', () => {
-    expect(Values.musicInterval()).toBeTruthy()
-  })
-})
-// color
-describe('Test Values.color', () => {
-  it('Should return color value', () => {
+const ARR = [1, 2, 3, 1]
+const OBJ = { words: 'some words', arr: ARR }
+
+describe('Test Values.color()', () => {
+  it('Should return color', () => {
     expect(Values.color()).toBeTruthy()
   })
 })
-// colorName
-describe('Test Values.colorName', () => {
-  it('Should return colorName value', () => {
+describe('Test Values.colorName()', () => {
+  it('Should return colorName', () => {
     expect(Values.colorName()).toBeTruthy()
   })
 })
-// date
-describe('Test Values.date', () => {
-  it('Should return date value', () => {
-    expect(Values.date()).toBeTruthy()
+describe('Test Values.time()', () => {
+  it('Should return time', () => {
+    expect(Values.time()).toBeTruthy()
   })
 })
-// text
-describe('Should return text with replaced words', () => {
-  it('small text', () => {
-    const source = `Hello, its simple text`
-    const dictionary = { Hello: 'Goodbye', simple: 'replaced', text: 'words' }
-    const result = Values.replaceByDictionary({ source, dictionary })
-
-    expect(result).toEqual('Goodbye, its replaced words')
+describe('Test Values.timeString()', () => {
+  it('Should return timeString', () => {
+    expect(Values.timeString()).toBeTruthy()
   })
-  it('large text', () => {
-    const source = `Hello, its simple text `.repeat(100)
-    const expected = 'Goodbye, its replaced words '.repeat(100)
-    const dictionary = { Hello: 'Goodbye', simple: 'replaced', text: 'words' }
-    const result = Values.replaceByDictionary({ source, dictionary })
-
-    expect(result).toEqual(expected)
+})
+describe('Test Values.timeDifference()', () => {
+  it('Should return timeDifference', () => {
+    expect(Values.timeDifference(Values.time() - 300)).toBeTruthy()
   })
-  it('small code', () => {
-    const source = `const range = () => Math.range()`
-    const expected = `короч range = () => ботан.range()`
-    const dictionary = { const: `короч`, Math: `ботан` }
-    const result = Values.replaceByDictionary({ source, dictionary })
-
-    expect(result).toEqual(expected)
+})
+describe('Test Values.timestamp()', () => {
+  it('Should return timestamp', () => {
+    expect(Values.timestamp()).toBeTruthy()
+  })
+})
+describe('Test Values.datestamp()', () => {
+  it('Should return datestamp', () => {
+    expect(Values.datestamp()).toBeTruthy()
+  })
+})
+describe('Test Values.objClone()', () => {
+  it('Should return objClone', () => {
+    expect(Values.objClone(OBJ)).toBeTruthy()
+  })
+})
+describe('Test Values.objKeys()', () => {
+  it('Should return objKeys', () => {
+    expect(Values.objKeys(OBJ)).toBeTruthy()
+  })
+})
+describe('Test Values.objValues()', () => {
+  it('Should return objValues', () => {
+    expect(Values.objValues(OBJ)).toBeTruthy()
+  })
+})
+describe('Test Values.objEntries()', () => {
+  it('Should return objEntries', () => {
+    expect(Values.objEntries(OBJ)).toBeTruthy()
   })
 })

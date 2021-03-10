@@ -1,6 +1,6 @@
 //! Constant Values for using in generate values, validate, etc...
 const NOTES = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Fb', 'F', 'E', 'Gb', 'G', 'Ab']
-// const NOTES = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'F', 'E', 'E#', 'G', 'G#']
+const NOTES_ALTERNATE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'F', 'E', 'E#', 'G', 'G#']
 const SCALES = [
   'major',
   'minor',
@@ -55,6 +55,7 @@ const INTERVAL_CHARS = ['P1', 'M2', 'M3', 'P4', 'P5', 'M6', 'M7']
 
 module.exports = {
   NOTES,
+  NOTES_ALTERNATE,
   SCALES,
   COLOR_CLASSNAMES,
   COLOR_NAMES,
