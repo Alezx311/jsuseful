@@ -1,3 +1,7 @@
+# Download
+
+[NPM](https://www.npmjs.com/package/jsuseful)
+
 # Usage
 
     const Helpers = require('jsuseful')
