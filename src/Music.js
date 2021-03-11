@@ -8,33 +8,51 @@ const {
 } = require("./Constants");
 
 class Music {
-  static noteChar = (alt = false) =>
-    Random.arrayElement(alt ? NOTES_ALTERNATE : NOTES);
+  static noteChar(alt = false) {
+    return Random.arrayElement(alt ? NOTES_ALTERNATE : NOTES);
+  }
 
-  static octave = (min = 2, max = 4) => Random.number(min, max);
+  static octave(min = 2, max = 4) {
+    return Random.number(min, max);
+  }
 
-  static note = (octave = this.octave()) => `${this.noteChar()}${octave}`;
+  static note(octave = this.octave()) {
+    return `${this.noteChar()}${octave}`;
+  }
 
-  static notes = (size = 10, octave) =>
-    Random.array(size, (v) => this.note(octave));
+  static notes(size = 10, octave) {
+    return Random.array(size, (v) => this.note(octave));
+  }
 
-  static scale = () => Random.arrayElement(SCALES);
+  static scale() {
+    return Random.arrayElement(SCALES);
+  }
 
-  static durationChar = () => Random.arrayElement(DURATION_CHARS);
+  static durationChar() {
+    return Random.arrayElement(DURATION_CHARS);
+  }
 
-  static duration = () => `${this.durationChar()}${Random.powerOfTwo(4)}`;
+  static duration() {
+    return `${this.durationChar()}${Random.powerOfTwo(4)}`;
+  }
 
-  static interval = () => Random.arrayElement(INTERVAL_CHARS);
+  static interval() {
+    return Random.arrayElement(INTERVAL_CHARS);
+  }
 
-  static velocity = () => 1 - Random.range() / 3;
+  static velocity() {
+    return 1 - Random.range() / 3;
+  }
 
-  static noteValues = (note) => ({
-    note,
-    duration: this.duration(),
-    velocity: this.velocity(),
-  });
+  static noteValues(note) {
+    return {
+      note: note,
+      duration: this.duration(),
+      velocity: this.velocity(),
+    };
+  }
 
-  static noteParse = (str) => {
+  static noteParse(str) {
     let [note, char, octave] = str.trim().match(/^([a-g#]+)(\d)$/i);
 
     if (!char) {
@@ -50,12 +68,13 @@ class Music {
     }
 
     return { note, char, octave };
-  };
+  }
 
-  static noteIndex = (note) =>
-    NOTES.indexOf(note.trim().match(/^([a-g#]+)/i)?.[1]);
+  static noteIndex(note) {
+    return NOTES.indexOf(note.trim().match(/^([a-g#]+)/i)?.[1]);
+  }
 
-  static noteStep = (noteChar, step = 1) => {
+  static noteStep(noteChar, step = 1) {
     let { note, char, octave } = this.noteParse(noteChar);
     let noteIndex = this.noteIndex(char);
     let newIndex = noteIndex + step;
@@ -69,13 +88,13 @@ class Music {
     }
 
     return `${NOTES[newIndex]}${octave}`;
-  };
+  }
 
-  static noteSteps = (note, size = 24) => {
+  static noteSteps(note, size = 24) {
     return Array(size)
       .fill(note)
       .map((v, i) => this.noteStep(v, i));
-  };
+  }
 }
 
 module.exports = Music;

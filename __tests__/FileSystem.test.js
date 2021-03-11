@@ -7,6 +7,7 @@ describe("Test FileSystem.resolvedPath()", () => {
     expect(result).toBeTruthy();
   });
 });
+
 describe("Test FileSystem.readFile()", () => {
   it("Should return readFile", async () => {
     const result = await FileSystem.readFile("../README.md");
@@ -14,6 +15,7 @@ describe("Test FileSystem.readFile()", () => {
     expect(result).toBeTruthy();
   });
 });
+
 describe("Test FileSystem.readDir()", () => {
   it("Should return readDir", async () => {
     const result = await FileSystem.readDir("./");
@@ -21,6 +23,7 @@ describe("Test FileSystem.readDir()", () => {
     expect(result).toBeTruthy();
   });
 });
+
 describe("Test FileSystem.write()", () => {
   it.skip("Should return write", async () => {
     const result = await FileSystem.write("./test.txt", "Test");
@@ -29,6 +32,7 @@ describe("Test FileSystem.write()", () => {
     expect(content).toEqual("Test");
   });
 });
+
 describe("Test FileSystem.append()", () => {
   it.skip("Should return append", async () => {
     const result = await FileSystem.append("./test.txt", "Append Test");
