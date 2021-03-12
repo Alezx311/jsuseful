@@ -4,7 +4,8 @@
   "description": "Useful functions for developing",
   "main": "src/index",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "exp": "nodemon --exec ts-node exp.ts"
   },
   "repository": {
     "type": "git",
