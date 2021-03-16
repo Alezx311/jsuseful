@@ -2,9 +2,9 @@
   "name": "jsuseful",
   "version": "1.0.5",
   "description": "Useful functions for developing",
-  "main": "src/index",
+  "main": "/index",
   "scripts": {
-    "test": "jest",
+    "test": "tsc index && jest",
     "exp": "nodemon --exec ts-node exp.ts"
   },
   "repository": {
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/Alezx311/js-useful.git",
   "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "jest": "^26.6.3"
   }
 }
