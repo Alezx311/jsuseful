@@ -1,9 +1,5 @@
-# Download
+# Download on [NPM](https://www.npmjs.com/package/jsuseful)
 
-[NPM](https://www.npmjs.com/package/jsuseful)
-
-<<<<<<< HEAD
-=======
 ### _Package dont have any dependency, old functions (FileSystem, Music, ...etc) wil be returned soon_
 
 ---
@@ -14,7 +10,6 @@ I removed some functions (FileSystem, Music, ...etc) for more compatibility with
 
 ---
 
->>>>>>> dev
 # Usage
 
     const JsUseful = require('jsuseful')
@@ -181,9 +176,6 @@ const data = Values.dateStamp()
 
 `Values.timeDifference(time: number): number| boolean`
 
-<<<<<<< HEAD
-## Helpers.FileSystem
-=======
 ```javascript
 const data = Values.timeDifference(Date.now() - 2000)
 // -> 2000
@@ -197,7 +189,6 @@ const data = Values.calcExp('2+2*2')
 ```
 
 ---
->>>>>>> dev
 
 ## _JsUseful.Constants_
 
@@ -219,25 +210,8 @@ const data = Values.calcExp('2+2*2')
         console.log(NOTES_ALTERNATE)
         // ->'A', 'A#', 'B', 'C', 'C#...
 
-<<<<<<< HEAD
-- noteChar
-- octave
-- note
-- notes
-- scale
-- durationChar
-- duration
-- interval
-- velocity
-- noteValues
-- noteParse
-- noteIndex
-- noteStep
-- noteSteps
-=======
         console.log(SCALES)
         // -> 'major','minor','ionian','dorian','phrygian'...
->>>>>>> dev
 
         console.log(COLOR_CLASSNAMES)
         // ->'primary','secondary','success','danger','warning','info'..
