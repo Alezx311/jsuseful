@@ -1,4 +1,4 @@
 node_modules/
 coverage/
 old/
-./Package.spec.js
+Package.spec.js

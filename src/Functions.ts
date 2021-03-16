@@ -1,4 +1,58 @@
 // ! Not ready yet, for future updates
+//* Lot of small functions, but needs refactoring first
+
+//* List:
+
+//^ arrayIterator
+//^ arrayCycleGenerator
+//^ walkThrough
+//^ findSubstrings
+//^ caesarCipher
+//^ countSubstrings
+//^ replaceByDictionary
+//^ toRomanNumeral
+//^ toTitleCase
+//^ isAnagram
+//^ palindrome
+//^ indexOfAll
+//^ isISOString
+//^ bucketSort
+//^ compare
+//^ arrayQuickSort
+//^ arrayMax
+//^ arrayMin
+//^ arrayUnicals
+//^ countBy
+//^ groupBy
+//^ mostFrequent
+//^ arrayFrequencies
+//^ differenceBy
+//^ deepFlatten
+//^ powerset
+//^ filterNonUnique
+//^ filterNonUniqueBy
+//^ averageBy
+//^ sumBy
+//^ cartesianProduct
+//^ bubbleSort
+//^ objClone
+//^ objKeys
+//^ objValues
+//^ objEntries
+//^ objFreeze
+//^ compactObject
+//^ flattenObject
+//^ sleep
+//^ delay
+//^ primes
+//^ arithmeticProgression
+//^ geometricProgression
+//^ toSafeInteger
+//^ isDateValid
+//^ fibonacci
+//^ size
+
+//TODO Rewrite on TypeScript, for include in package
 
 // export class Generator {
 //   static arrayIterator = function* (arr) {

@@ -1,6 +1,12 @@
 //! Constant Values for using in generate values, validate, etc...
+
+//* Values for using in Music Useful Functions
 export const NOTES = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Fb', 'F', 'E', 'Gb', 'G', 'Ab']
+
+//* Values for using in Music Useful Functions
 export const NOTES_ALTERNATE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'F', 'E', 'E#', 'G', 'G#']
+
+//* Values for using in Music Useful Functions
 export const SCALES = [
   'major',
   'minor',
@@ -22,6 +28,8 @@ export const SCALES = [
   'melodicminor',
   'wholetone'
 ]
+
+//* Values for using in Music Useful Functions
 export const COLOR_CLASSNAMES = [
   'primary',
   'secondary',
@@ -35,7 +43,11 @@ export const COLOR_CLASSNAMES = [
   'white',
   'transparent'
 ]
+
+//* Values for using in Music Useful Functions
 export const COLOR_NAMES = ['blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'teal', 'cyan']
+
+//* Values for using in Music Useful Functions
 export const COLOR_CODES = [
   '#ff0000',
   '#ff4e00',
@@ -50,5 +62,9 @@ export const COLOR_CODES = [
   '#a800ff',
   '#ff00fd'
 ]
+
+//* Values for using in Music Useful Functions
 export const DURATION_CHARS = ['n', 't', 'm', 'n']
+
+//* Values for using in Music Useful Functions
 export const INTERVAL_CHARS = ['P1', 'M2', 'M3', 'P4', 'P5', 'M6', 'M7']
