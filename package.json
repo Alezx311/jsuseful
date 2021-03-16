@@ -1,6 +1,6 @@
 {
   "name": "jsuseful",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Useful functions for developing",
   "main": "./lib/cjs/src/index.js",
   "module": "./lib/esm/src/index.js",
@@ -11,7 +11,7 @@
     "test": "jest",
     "build": "tsc -p tsconfig.json",
     "build_common": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
-    "prepublish": "npm run tsc",
+    "prepublish": "npm run build_common",
     "dev": "nodemon index.ts"
   },
   "repository": {
