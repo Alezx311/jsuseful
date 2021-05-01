@@ -14,3 +14,5 @@ describe('Check Module Test', () => {
     expect(Check.truthy(123)).toBe(true)
   })
 })
+
+
