@@ -1,4 +1,4 @@
-import { MessageEnum } from './enums'
+import { MessageEnum } from './Enums'
 
 export class Messages {
 	public static Title(str?: string): string {

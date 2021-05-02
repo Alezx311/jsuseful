@@ -37,7 +37,7 @@ export class Validate {
 			const dir = __dirname
 			return true
 		} catch (e) {
-			console.error(NO_FILE_SYSTEM)
+			console.error(`NO_FILE_SYSTEM`)
 			return false
 		}
 	}
