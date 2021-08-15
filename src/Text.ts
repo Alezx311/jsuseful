@@ -4,7 +4,7 @@ export class Text {
 
 	// }
 	// public static CharsReplace = (str: string, regExpChars?: RegExp, regExpFunc?: (str: string) => string): Promise<void> {
-	//   if(!regExpChars) regExpChars = new RegExp('\w', 'gi')
+	//   if(!regExpChars) rtegExpChars = new RegExp('\w', 'gi')
 	//   if(!regExpFunc) regExpFunc = char => ''
 	// }
 	// public static length = (str: string): string {
@@ -35,10 +35,10 @@ export class Text {
 
 	static splitToLines(text: string): string[] {
 		const lines = text
-			.split('\n')
-			.map(v => v?.trim())
-			.filter(Boolean)
+			?.split('\n')
+			?.map(v => v?.trim())
+			?.filter(Boolean)
 
-		return lines
+		return lines ?? []
 	}
 }
