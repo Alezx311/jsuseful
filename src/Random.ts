@@ -1,97 +1,148 @@
-export class Random {
-	//* Returns random range
-	public static range(min?: number, max?: number, size?: number): number {
-		if (!min) min = 0.01
-		if (!max) max = 0.99
-		if (!size) size = 2
+export type AnyValue = any
+export type AnyArray = any[]
 
+export class Random {
+	//* Returns random numbers arr
+	public static numbersDeep = (len = 10, max = 4): (number | number[])[] =>
+		this.numbers(len, max).map(v => (v > 1 ? this.numbers(v, max) : v))
+
+	//* Returns random values
+	public static values = (arr: AnyArray): AnyArray => this.array(10).map(v => this.arrayElement(arr))
+
+	//* Returns random range
+	public static range(min = 0.01, max = 0.99, size = 2): number {
 		return Number((Math.random() * (max - min) + min).toFixed(size))
 	}
 
-	//* Returns random number
-	public static number(min?: number, max?: number): number {
-		if (!min) min = 1
-		if (!max) max = 100
-
-		return Math.floor(min + Math.random() * (max + 1 - min))
+	//* Random integer
+	public static number(min = 1, max = 100): number {
+		return ~~(min + Math.random() * (max + 1 - min))
 	}
 
-	//* Returns random powerOfTwo
-	public static powerOfTwo(min?: number, max?: number): number {
-		if (!min) min = 1
+	//* Returns random power of two
+	public static powerOfTwo(min = 1, max = 10): number {
 		return 2 ** ~~this.number(min, max)
 	}
 
-	//* Returns random boolean
-	public static boolean(chance?: number): boolean {
-		if (!chance) chance = 50
+	//* Boolean with given chance
+	public static boolean(chance = 50): boolean {
 		return this.number(1, 100) > chance
 	}
 
-	//* Returns random array
-	public static array(size: number = 10, cb = () => this.number()): any[] {
+	//* Returns random arr, can create element from given callback
+	public static array(size: number = 10, cb = () => this.number()): AnyArray {
 		return Array(size)
 			.fill(cb)
 			.map(v => (v instanceof Function ? v() : v))
 	}
 
-	//* Returns random numbers
+	//* Returns random numbers arr
 	public static numbers(size?: number, min?: number, max?: number): number[] {
 		return this.array(size, () => this.number(min, max))
 	}
 
-	//* Returns random arrayIndex
-	public static arrayIndex(array: any[]): number {
-		return this.number(0, array.length - 1)
+	//* Return Random arrays
+	public static arrays = (size = 10, maxDeep = 5): AnyArray =>
+		this.array(size).map(v => this.array(this.number(2, maxDeep)))
+
+	//* Return Random arrayGrow
+	public static arrayGrow = (arr: AnyArray, growSize = 2): AnyArray => {
+		return Array(growSize)
+			.fill(arr)
+			.reduce((acc, v) => [...acc, v], [])
 	}
 
-	//* Returns random arrayElement
-	public static arrayElement(array: any[]): any {
-		return array[this.arrayIndex(array)]
+	//* Return Random example
+	public static example = (size = 10): number[] => this.numbers(size)
+
+	//* Return Random arrayExamples
+	public static arrayExamples = (size = 10): AnyArray => this.array(size).map(v => this.example(size))
+
+	//* Return Random arraySequence
+	public static arraySequence = (start = 1, end = 100): AnyArray => this.array(end).map((v, i) => start + i)
+
+	//* Return Random arrayChange
+	public static arrayChange = (size = 10, arr: AnyArray): AnyArray =>
+		this.arrayElement(this.array(size).map(v => this.arrayShuffle(arr)))
+
+	//* Return Random arrayMerge
+	public static arrayMerge = (...arrays: AnyArray): AnyArray => [
+		...new Set(arrays.reduce((acc, arr) => [...acc, ...arr], [])),
+	]
+
+	//* Return Random arrayDouble
+	public static arrayDouble = (arr: AnyArray): AnyArray => [arr, arr]
+
+	//* Return Random arrayRepeats
+	public static arrayRepeats = (arr: AnyArray, repeats = 2): AnyArray => Array(repeats).fill(arr).flat(Infinity)
+
+	//* Return Random arrayShuffles
+	public static arrayShuffles = (arr: AnyArray, repeats = 2): AnyArray =>
+		this.arrayShuffle(this.arrayRepeats(arr, repeats))
+
+	//* Return Random arrayShuffleUnicals
+	public static arrayShuffleUnicals = (arr: AnyArray): AnyArray => this.arrayUnicals(this.arrayShuffle(arr))
+
+	//* Return Random arrayDoubleSome
+
+	public static arrayDoubleSome = (arr: AnyArray, chance = 50): AnyArray =>
+		this.arrayShuffles(arr).map(v => (this.boolean(chance) ? [v, v] : v))
+
+	//* Random index from given arr
+	public static arrayIndex(arr: AnyArray): number {
+		const endIndex = ~~arr?.length - 1
+		return endIndex > 0 ? this.number(0, endIndex) : 0
 	}
 
-	//* Returns random arrayValues
-	public static arrayValues(array: any[], size: number = 2): any[] {
-		return this.array(size, () => this.arrayElement(array))
+	//* Random Element from given arr
+	public static arrayElement(arr: AnyArray): AnyValue {
+		return arr?.[this.arrayIndex(arr)] ?? null
 	}
 
-	//* Returns random arrayUnicalscb && cb
-	public static arrayUnicals(array: any[]): any[] {
-		return Array.from(new Set([...array]))
+	//* Array of random elements from given arr... GENIUS BLYAT
+	public static arrayValues(arr: AnyArray, size: number = 2): AnyArray {
+		return this.array(size, () => this.arrayElement(arr))
 	}
 
-	//* Returns random arrayShuffle
-	public static arrayShuffle(array: any[]): any[] {
-		return array.sort(() => Math.random() - 0.5)
+	//* Only unical values
+	public static arrayUnicals(arr: AnyArray): AnyArray {
+		return [...new Set(arr)]
 	}
 
-	//* Return random part of array
-	public static arrayPart(array: any[]): any[] {
-		if ((array?.length ?? 0) < 3) {
-			throw new Error('Invalid or too small array')
+	//* Shuffle elements
+	public static arrayShuffle(arr: AnyArray): AnyArray {
+		if (!arr?.length) {
+			return []
 		}
 
-		const startIndex = this.number(0, array.length - 2)
-		const endIndex = this.number(startIndex, array.length - 1)
-
-		return array.slice(startIndex, endIndex)
+		return arr.sort(() => Math.random() - 0.5)
 	}
 
-	//* Return array with some deep values arrays
-	public static arrayDeepSomeValues(array: any[], chance?: number): any[] {
-		return [...array].reduce((acc, val) => {
+	//* Random part of arr
+	public static arrayPart(arr: AnyArray): AnyArray {
+		if (!arr?.length) return []
+		if (~~arr?.length < 3) return [arr[0]]
+
+		const startIndex = this.number(0, arr?.length - 2)
+		const endIndex = this.number(startIndex, arr?.length - 1)
+
+		return arr.slice(startIndex, endIndex)
+	}
+
+	//* Transform random values of arr to another arr
+	public static arrayDeepSomeValues(arr: AnyArray, chance?: number): AnyArray {
+		return arr.reduce((acc, v) => {
 			if (this.boolean(chance)) {
-				return [...acc, [val, val]]
+				return [...acc, [v, v]]
 			} else {
-				return [...acc, val]
+				return [...acc, v]
 			}
-		})
+		}, [])
 	}
 
-	//* Return random string, created from given strings array
+	//* Return random string, created from given strings arr
 	public static joinedStrings(parts: string[], size?: number): string {
 		const filtered = parts.map(str => str.trim().match(/[a-z]/gi)?.join(''))
-
 		return this.arrayValues(filtered, size).join('')
 	}
 
@@ -101,18 +152,21 @@ export class Random {
 	}
 
 	//* Returns random objectKey
-	public static objectKey(obj: {}): string {
-		return this.arrayElement(Object.keys(obj))
+	public static objectKey(obj = {}): string {
+		const arr = Object.keys(obj)
+		return arr?.length ? this.arrayElement(arr) : null
 	}
 
 	//* Returns random objectValue
-	public static objectValue(obj: {}): any {
-		return this.arrayElement(Object.values(obj))
+	public static objectValue(obj = {}): AnyValue {
+		const arr = Object.values(obj)
+		return arr?.length ? this.arrayElement(arr) : null
 	}
 
 	//* Returns random objectEntry
-	public static objectEntry(obj: {}): [string, any] {
-		return this.arrayElement(Object.entries(obj))
+	public static objectEntry(obj = {}): [string, any] {
+		const arr = Object.entries(obj)
+		return arr?.length ? this.arrayElement(arr) : null
 	}
 }
 

@@ -1,27 +1,32 @@
+export { JsUseful } from './index'
+export { Functions } from './Functions'
+export { Text } from './Text'
 export { Constants } from './Constants'
-export { Check } from './Check'
 export { Random } from './Random'
 export { Values } from './Values'
-export { JsUseful } from './index'
 
 import { Constants as constants } from './Constants'
-import { Check as check } from './Check'
+import { Functions as functions } from './Functions'
+import { Text as text } from './Text'
 import { Random as random } from './Random'
 import { Values as values } from './Values'
 import { JsUseful as jsUseful } from './index'
 
 export namespace jsuseful {
-	export class Check extends check {}
+	export class Functions extends functions {}
+	export class Text extends text {}
 	export class Random extends random {}
 	export class Values extends values {}
-	export class Constants extends constants {}
 	export class JsUseful extends jsUseful {}
 }
 
 declare module 'jsuseful' {
-	export class Check extends check {}
+	export class Constants extends constants {}
+	export class Functions extends functions {}
+	export class Text extends text {}
 	export class Random extends random {}
 	export class Values extends values {}
-	export class Constants extends constants {}
 	export class JsUseful extends jsUseful {}
 }
+
+export default jsUseful

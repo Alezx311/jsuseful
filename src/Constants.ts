@@ -69,6 +69,29 @@ export const DURATION_CHARS = ['n', 't', 'm', 'n']
 //* Values for using in Music Useful Functions
 export const INTERVAL_CHARS = ['P1', 'M2', 'M3', 'P4', 'P5', 'M6', 'M7']
 
+export const CONSTANTS = {
+	NOTES,
+	NOTES_ALTERNATE,
+	SCALES,
+	COLOR_CLASSNAMES,
+	COLOR_NAMES,
+	COLOR_CODES,
+	DURATION_CHARS,
+	INTERVAL_CHARS,
+}
+
+export const CONSTANTS_V2 = {
+	...CONSTANTS,
+	Notes: NOTES,
+	NotesAlternate: NOTES_ALTERNATE,
+	Scales: SCALES,
+	ColorClassnames: COLOR_CLASSNAMES,
+	ColorNames: COLOR_NAMES,
+	ColorCodes: COLOR_CODES,
+	DurationChars: DURATION_CHARS,
+	IntervalChars: INTERVAL_CHARS,
+}
+
 export class Constants {
 	public static Notes = NOTES
 	public static NotesAlternate = NOTES_ALTERNATE

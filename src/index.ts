@@ -1,18 +1,21 @@
 export { Constants } from './Constants'
-export { Check } from './Check'
 export { Random } from './Random'
 export { Values } from './Values'
+export { Text } from './Text'
+export { Functions } from './Functions'
 
 import { Constants } from './Constants'
-import { Check } from './Check'
 import { Random } from './Random'
 import { Values } from './Values'
+import { Text } from './Text'
+import { Functions } from './Functions'
 
 export class JsUseful {
-	public static Constants = Constants
-	public static Check = Check
-	public static Random = Random
-	public static Values = Values
+	Constants = Constants
+	Random = Random
+	Values = Values
+	Text = Text
+	Functions = Functions
 }
 
 export default JsUseful

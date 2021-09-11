@@ -1,32 +1,29 @@
-const { Values } = require('../lib/cjs/src')
+const { Values } = require('../lib/src')
 
 describe('JsUseful.Values module tests', () => {
-  it('Should return timeValue', () => {
-    expect(Values.timeValue()).toBeGreaterThan(Date.now() - 1000)
-    expect(Values.timeValue()).toBeLessThan(Date.now() + 1000)
-  })
+	it('Should return timeValue', () => {
+		const result = Values.CalcExp('2+2')
+		expect(result).toBe(4)
+	})
 })
 
 describe('JsUseful.Values module tests', () => {
-  it('Should return timeStamp', () => {
-    expect(Values.timeStamp()).toBeTruthy()
-  })
+	it('Should return timeStamp', () => {
+		const result = Values.TimeStamp()
+		expect(result?.length).toBeGreaterThanOrEqual(1)
+	})
 })
 
 describe('JsUseful.Values module tests', () => {
-  it('Should return dateStamp', () => {
-    expect(Values.dateStamp()).toBeTruthy()
-  })
+	it('Should return dateStamp', () => {
+		const result = Values.DateStamp()
+		expect(result?.length).toBeGreaterThanOrEqual(1)
+	})
 })
 
 describe('JsUseful.Values module tests', () => {
-  it('Should return timeDifference', () => {
-    expect(Values.timeDifference(Date.now() - 2000)).toBeTruthy()
-  })
-})
-
-describe('JsUseful.Values module tests', () => {
-  it('Should return calcExp', () => {
-    expect(Values.calcExp('2+2*2')).toBe(6)
-  })
+	it('Should return timeDifference', () => {
+		const result = Values.TimeDifference(Date.now() - 1000)
+		expect(result).toBeGreaterThanOrEqual(1)
+	})
 })
