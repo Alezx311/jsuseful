@@ -1,6 +1,6 @@
 {
 	"name": "jsuseful",
-	"version": "1.0.10",
+	"version": "1.1.12",
 	"description": "Useful functions for developing",
 	"main": "./lib/cjs/src/index.js",
 	"module": "./lib/esm/src/index.js",
@@ -32,7 +32,7 @@
 		"file",
 		"helpers"
 	],
-	"author": "alezx311 <alezx311@gmail.com",
+	"author": "alezx311 <alezx311@gmail.com>",
 	"license": "ISC",
 	"homepage": "https://www.npmjs.com/package/jsuseful",
 	"dependencies": {},
