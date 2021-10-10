@@ -365,3 +365,5 @@ export class Functions {
 //       ? new Blob([val]).size
 //       : 0
 // }
+
+export default {}

@@ -1,4 +1,4 @@
-const { Random } = require('../lib/src')
+const { Random } = require('../lib/cjs/src')
 
 const methods = [
 	'numbersDeep',
@@ -38,9 +38,9 @@ const methods = [
 ]
 
 const EXAMPLE_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 1, 1]
-const EXAMPLE_OBJECT = { examples: EXAMPLE_ARRAY, methods }
+const EXAMPLE_OBJECT = { str: 'someString', examples: EXAMPLE_ARRAY, methods }
 
-describe('Automated <<< JsUSeful.Random >>> Tests with default values', () => {
+describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 	it('Should return numbersDeep() result', () => {
 		const result = Random.numbersDeep()
 

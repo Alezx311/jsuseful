@@ -1,13 +1,15 @@
 //! Constant Values for using in generate values, validate, etc...
 
-//* Values for using in Music Useful Functions
-export const NOTES = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Fb', 'F', 'E', 'Gb', 'G', 'Ab']
+import { A, S } from './types'
 
 //* Values for using in Music Useful Functions
-export const NOTES_ALTERNATE = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'F', 'E', 'E#', 'G', 'G#']
+export const NOTES: A<S> = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Fb', 'F', 'E', 'Gb', 'G', 'Ab']
 
 //* Values for using in Music Useful Functions
-export const SCALES = [
+export const NOTES_ALTERNATE: A<S> = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'F', 'E', 'E#', 'G', 'G#']
+
+//* Values for using in Music Useful Functions
+export const SCALES: A<S> = [
 	'major',
 	'minor',
 	'ionian',
@@ -30,7 +32,7 @@ export const SCALES = [
 ]
 
 //* Values for using in Music Useful Functions
-export const COLOR_CLASSNAMES = [
+export const COLOR_CLASSNAMES: A<S> = [
 	'primary',
 	'secondary',
 	'success',
@@ -45,10 +47,21 @@ export const COLOR_CLASSNAMES = [
 ]
 
 //* Values for using in Music Useful Functions
-export const COLOR_NAMES = ['blue', 'indigo', 'purple', 'pink', 'red', 'orange', 'yellow', 'green', 'teal', 'cyan']
+export const COLOR_NAMES: A<S> = [
+	'blue',
+	'indigo',
+	'purple',
+	'pink',
+	'red',
+	'orange',
+	'yellow',
+	'green',
+	'teal',
+	'cyan',
+]
 
 //* Values for using in Music Useful Functions
-export const COLOR_CODES = [
+export const COLOR_CODES: A<S> = [
 	'#ff0000',
 	'#ff4e00',
 	'#db7b00',
@@ -64,12 +77,12 @@ export const COLOR_CODES = [
 ]
 
 //* Values for using in Music Useful Functions
-export const DURATION_CHARS = ['n', 't', 'm', 'n']
+export const DURATION_CHARS: A<S> = ['n', 't', 'm', 'n']
 
 //* Values for using in Music Useful Functions
-export const INTERVAL_CHARS = ['P1', 'M2', 'M3', 'P4', 'P5', 'M6', 'M7']
+export const INTERVAL_CHARS: A<S> = ['P1', 'M2', 'M3', 'P4', 'P5', 'M6', 'M7']
 
-export const CONSTANTS = {
+export const Constants = {
 	NOTES,
 	NOTES_ALTERNATE,
 	SCALES,
@@ -80,8 +93,8 @@ export const CONSTANTS = {
 	INTERVAL_CHARS,
 }
 
-export const CONSTANTS_V2 = {
-	...CONSTANTS,
+export const ConstantValues = {
+	...Constants,
 	Notes: NOTES,
 	NotesAlternate: NOTES_ALTERNATE,
 	Scales: SCALES,
@@ -92,15 +105,5 @@ export const CONSTANTS_V2 = {
 	IntervalChars: INTERVAL_CHARS,
 }
 
-export class Constants {
-	public static Notes = NOTES
-	public static NotesAlternate = NOTES_ALTERNATE
-	public static Scales = SCALES
-	public static ColorClassnames = COLOR_CLASSNAMES
-	public static ColorNames = COLOR_NAMES
-	public static ColorCodes = COLOR_CODES
-	public static DurationChars = DURATION_CHARS
-	public static IntervalChars = INTERVAL_CHARS
-}
-
-export default Constants
+// For module exporting
+export default ConstantValues

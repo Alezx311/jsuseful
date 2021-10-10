@@ -1,5 +1,7 @@
+import { B, N, S } from './types'
+
 export class Values {
-	public static DateNow(): number {
+	public static DateNow(): N {
 		return Date.now()
 	}
 
@@ -8,25 +10,34 @@ export class Values {
 	}
 
 	//* Time in UNIX seconds
-	public static DateStamp(): string {
+	public static DateStamp(): S {
 		const date = this.DateValue().toISOString()
 		return `${date}`
 	}
 
 	//* Time in string
-	public static TimeStamp(): string {
+	public static TimeStamp(): S {
 		const date = this.DateValue().toLocaleTimeString()
 		return `${date}`
 	}
 
 	//* Useful when need fast check performance
-	public static TimeDifference(time: number): number {
+	public static TimeDifference(time: N): N {
 		return this.DateNow() - ~~time
 	}
 
-	//* Just simple math expression evaluation
-	public static CalcExp(exp: string): number | boolean {
+	//* Just simple math expression Date
+	public static CalcExp(exp: S): N | B {
 		const calc = new Function('', `return ${exp}`)
 		return calc()
 	}
+}
+
+export default {
+	DateNow: Values.DateNow,
+	DateValue: Values.DateValue,
+	DateStamp: Values.DateStamp,
+	TimeStamp: Values.TimeStamp,
+	TimeDifference: Values.TimeDifference,
+	CalcExp: Values.CalcExp,
 }
