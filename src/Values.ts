@@ -1,6 +1,42 @@
 import { B, N, S } from './types'
-
 export class Values {
+	public static Types = [
+		'ANY',
+		'UNK',
+		'NVR',
+		'VOI',
+		'UND',
+		'NULL',
+		'IS',
+		'OMIT',
+		'NOT',
+		'PropsOr',
+		'PropsAnd',
+		'B',
+		'S',
+		'N',
+		'A',
+		'AFilt',
+		'O',
+		'Obj',
+		'ObjFilt',
+		'P',
+		'F',
+		'RESULT',
+		'KEYS',
+		'VALUE',
+		'TYPE',
+		'EMP',
+		'TKREQ',
+		'OR',
+		'AND',
+		'OPT',
+		'INSTANCEOF',
+		'NOT_NULL',
+		'IFC',
+		'ENM',
+	]
+
 	public static DateNow(): N {
 		return Date.now()
 	}

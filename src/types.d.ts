@@ -3,6 +3,7 @@ declare namespace Useful {
 	enum Enum {}
 	const fn: <T, R>(v: T) => R
 
+	type TODO = Omit<any, keyof Type>
 	type Type =
 		| any
 		| never
@@ -13,14 +14,45 @@ declare namespace Useful {
 		| boolean
 		| string
 		| number
-		| any[]
-		| object
+		| Array<any>
+		| Record<S, unknown>
 		| Promise<any>
 		| Function
 		| symbol
-		| 'key'
-		| 'index'
-		| 'value'
+		| ANY
+		| UNK
+		| NVR
+		| VOI
+		| UND
+		| NULL
+		| IS
+		| OMIT
+		| NOT
+		| PropsOr
+		| PropsAnd
+		| B
+		| S
+		| N
+		| A
+		| AFilt
+		| O
+		| Obj
+		| ObjFilt
+		| P
+		| F
+		| RESULT
+		| KEYS
+		| VALUE
+		| TYPE
+		| EMP
+		| TKREQ
+		| OR
+		| AND
+		| OPT
+		| INSTANCEOF
+		| NOT_NULL
+		| IFC
+		| ENM
 
 	//? Type Shorthands
 	type ANY = any
@@ -29,9 +61,9 @@ declare namespace Useful {
 	type VOI = void
 	type UND = undefined
 	type NULL = null
-	type IS<T> = Pick<ANY, keyof T>
-	type OMIT<T> = Omit<ANY, keyof T>
-	type NOT<T> = Omit<ANY, keyof T>
+	type IS<T = KEYS> = Pick<ANY, keyof T>
+	type OMIT<T = KEYS> = Omit<ANY, keyof T>
+	type NOT<T = KEYS> = Omit<ANY, keyof T>
 	type PropsOr<T = A<S>, T2 = T> = { [key in keyof T & T2] }
 	type PropsAnd<T = A<S>, T2 = T> = { [key in keyof Omit<T2, keyof T>] }
 
