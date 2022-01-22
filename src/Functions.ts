@@ -3,8 +3,8 @@
 
 //* List:
 
-//^ arrayIterator
-//^ arrayCycleGenerator
+//^ arrIterator
+//^ arrCycleGenerator
 //^ walkThrough
 //^ findSubstrings
 //^ caesarCipher
@@ -18,14 +18,14 @@
 //^ isISOString
 //^ bucketSort
 //^ compare
-//^ arrayQuickSort
-//^ arrayMax
-//^ arrayMin
-//^ arrayUnicals
+//^ arrQuickSort
+//^ arrMax
+//^ arrMin
+//^ arrUnicals
 //^ countBy
 //^ groupBy
 //^ mostFrequent
-//^ arrayFrequencies
+//^ arrFrequencies
 //^ differenceBy
 //^ deepFlatten
 //^ powerset
@@ -66,11 +66,11 @@ export class Functions {
 }
 // export class Generator {
 //
-// static arrayIterator = function* (arr) {
-//     yield Random.arrayElement(arr)
+// static arrIterator = function* (arr) {
+//     yield Random.arrElement(arr)
 //   }
 //
-// static arrayCycleGenerator = function* (arr) {
+// static arrCycleGenerator = function* (arr) {
 //     let i = 0
 //     while (true) {
 //       yield arr[i % arr.length]
@@ -199,7 +199,7 @@ export class Functions {
 //
 // static compare = (arr1, arr2) => JSON.stringify(arr1) === JSON.stringify(arr2)
 //
-// static arrayQuickSort = arr => {
+// static arrQuickSort = arr => {
 //     const a = [...arr]
 //     if (a.length < 2) return a
 //     const pivotIndex = Math.floor(arr.length / 2)
@@ -215,14 +215,14 @@ export class Functions {
 //       },
 //       [[], []]
 //     )
-//     return [...this.arrayQuickSort(lo), pivot, ...this.arrayQuickSort(hi)]
+//     return [...this.arrQuickSort(lo), pivot, ...this.arrQuickSort(hi)]
 //   }
 //
-// static arrayMax = arr => Math.max([...arr])
+// static arrMax = arr => Math.max([...arr])
 //
-// static arrayMin = arr => Math.min([...arr])
+// static arrMin = arr => Math.min([...arr])
 //
-// static arrayUnicals = arr => [...new Set([...arr])]
+// static arrUnicals = arr => [...new Set([...arr])]
 //
 // static countBy = (arr, fn) =>
 //     arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => {
@@ -244,7 +244,7 @@ export class Functions {
 //       }, {})
 //     ).reduce((a, v) => (v[1] >= a[1] ? v : a), [null, 0])[0]
 //
-// static arrayFrequencies = arr =>
+// static arrFrequencies = arr =>
 //     arr.reduce((a, v) => {
 //       a[v] = a[v] ? a[v] + 1 : 1
 //       return a

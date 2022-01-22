@@ -7,38 +7,35 @@ const methods = [
 	'number',
 	'powerOfTwo',
 	'boolean',
-	'array',
+	'arr',
 	'numbers',
 	'arr',
-	'arrays',
-	'arrayGrow',
+	'arrs',
+	'arrGrow',
 	'example',
-	'arrayExamples',
-	'arraySequence',
-	'arrayChange',
-	'arrayMerge',
-	'arrayDouble',
-	'arrayRepeats',
-	'arrayShuffles',
-	'arrayShuffleUnicals',
-	'arrayDoubleSome',
+	'arrExamples',
+	'arrSequence',
+	'arrChange',
+	'arrMerge',
+	'arrDouble',
+	'arrRepeats',
+	'arrShuffles',
+	'arrShuffleUnicals',
+	'arrDoubleSome',
 	'objectProp',
-	'arrayIndex',
-	'arrayElement',
-	'arrayValues',
-	'arrayUnicals',
-	'arrayShuffle',
-	'arrayPart',
-	'arrayDeepSomeValues',
+	'arrIndex',
+	'arrElement',
+	'arrValues',
+	'arrUnicals',
+	'arrShuffle',
+	'arrPart',
+	'arrDeepSomeValues',
 	'joinedStrings',
 	'textLines',
 	'objectKey',
 	'objectValue',
 	'objectEntry',
 ]
-
-const EXAMPLE_ARRAY = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 1, 1, 1]
-const EXAMPLE_OBJECT = { str: 'someString', examples: EXAMPLE_ARRAY, methods }
 
 describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 	it('Should return numbersDeep() result', () => {
@@ -48,7 +45,7 @@ describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 	})
 
 	it('Should return values() result', () => {
-		const result = Random.values(EXAMPLE_ARRAY)
+		const result = Random.values(_ARR)
 
 		expect(result).toBeDefined()
 	})
@@ -77,8 +74,8 @@ describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 		expect(result).toBeDefined()
 	})
 
-	it('Should return array() result', () => {
-		const result = Random.array()
+	it('Should return arr() result', () => {
+		const result = Random.arr()
 
 		expect(result).toBeDefined()
 	})
@@ -90,19 +87,19 @@ describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 	})
 
 	it('Should return arr() result', () => {
-		const result = Random.array()
+		const result = Random.arr()
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrays() result', () => {
-		const result = Random.arrays()
+	it('Should return arrs() result', () => {
+		const result = Random.arrs()
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayGrow() result', () => {
-		const result = Random.arrayGrow(EXAMPLE_ARRAY)
+	it('Should return arrGrow() result', () => {
+		const result = Random.arrGrow(_ARR)
 
 		expect(result?.length).toBeGreaterThanOrEqual(1)
 	})
@@ -113,98 +110,98 @@ describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayExamples() result', () => {
-		const result = Random.arrayExamples()
+	it('Should return arrExamples() result', () => {
+		const result = Random.arrExamples()
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arraySequence() result', () => {
-		const result = Random.arraySequence()
+	it('Should return arrSequence() result', () => {
+		const result = Random.arrSequence()
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayChange() result', () => {
-		const result = Random.arrayChange(2, EXAMPLE_ARRAY)
+	it('Should return arrChange() result', () => {
+		const result = Random.arrChange(2, _ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayMerge() result', () => {
-		const result = Random.arrayMerge(EXAMPLE_ARRAY, ['Another Array'])
+	it('Should return arrMerge() result', () => {
+		const result = Random.arrMerge(_ARR, ['Another Array'])
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayDouble() result', () => {
-		const result = Random.arrayDouble(EXAMPLE_ARRAY)
+	it('Should return arrDouble() result', () => {
+		const result = Random.arrDouble(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayRepeats() result', () => {
-		const result = Random.arrayRepeats(EXAMPLE_ARRAY)
+	it('Should return arrRepeats() result', () => {
+		const result = Random.arrRepeats(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayShuffles() result', () => {
-		const result = Random.arrayShuffles(EXAMPLE_ARRAY)
+	it('Should return arrShuffles() result', () => {
+		const result = Random.arrShuffles(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayShuffleUnicals() result', () => {
-		const result = Random.arrayShuffleUnicals(EXAMPLE_ARRAY)
+	it('Should return arrShuffleUnicals() result', () => {
+		const result = Random.arrShuffleUnicals(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayDoubleSome() result', () => {
-		const result = Random.arrayDoubleSome(EXAMPLE_ARRAY)
+	it('Should return arrDoubleSome() result', () => {
+		const result = Random.arrDoubleSome(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayIndex() result', () => {
-		const result = Random.arrayIndex(EXAMPLE_ARRAY)
+	it('Should return arrIndex() result', () => {
+		const result = Random.arrIndex(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayElement() result', () => {
-		const result = Random.arrayElement(EXAMPLE_ARRAY)
+	it('Should return arrElement() result', () => {
+		const result = Random.arrElement(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayValues() result', () => {
-		const result = Random.arrayValues(EXAMPLE_ARRAY)
+	it('Should return arrValues() result', () => {
+		const result = Random.arrValues(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayUnicals() result', () => {
-		const result = Random.arrayUnicals(EXAMPLE_ARRAY)
+	it('Should return arrUnicals() result', () => {
+		const result = Random.arrUnicals(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayShuffle() result', () => {
-		const result = Random.arrayShuffle(EXAMPLE_ARRAY)
+	it('Should return arrShuffle() result', () => {
+		const result = Random.arrShuffle(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayPart() result', () => {
-		const result = Random.arrayPart(EXAMPLE_ARRAY)
+	it('Should return arrPart() result', () => {
+		const result = Random.arrPart(_ARR)
 
 		expect(result).toBeDefined()
 	})
 
-	it('Should return arrayDeepSomeValues() result', () => {
-		const result = Random.arrayDeepSomeValues(EXAMPLE_ARRAY)
+	it('Should return arrDeepSomeValues() result', () => {
+		const result = Random.arrDeepSomeValues(_ARR)
 
 		expect(result).toBeDefined()
 	})
@@ -216,25 +213,25 @@ describe('Automated <<< JsUseful.Random >>> Tests with default values', () => {
 	})
 
 	it('Should return textLines() result', () => {
-		const result = Random.textLines(EXAMPLE_ARRAY.join('\n'))
+		const result = Random.textLines(_ARR.join('\n'))
 
 		expect(result).toBeDefined()
 	})
 
 	it('Should return objectKey() result', () => {
-		const result = Random.objectKey(EXAMPLE_OBJECT)
+		const result = Random.objectKey(_OBJECT)
 
 		expect(result).toBeDefined()
 	})
 
 	it('Should return objectValue() result', () => {
-		const result = Random.objectValue(EXAMPLE_OBJECT)
+		const result = Random.objectValue(_OBJECT)
 
 		expect(result).toBeDefined()
 	})
 
 	it('Should return objectEntry() result', () => {
-		const result = Random.objectEntry(EXAMPLE_OBJECT)
+		const result = Random.objectEntry(_OBJECT)
 
 		expect(result).toBeDefined()
 	})
@@ -250,7 +247,7 @@ describe('Random.range', () => {
 	})
 
 	it('Should return random ranges', () => {
-		const results = Random.array(100, () => Random.range())
+		const results = Random.arr(100, () => Random.range())
 
 		results.forEach(result => {
 			expect(result).toBeDefined()
@@ -274,7 +271,7 @@ describe('Random.number', () => {
 	})
 
 	it('Should return random numbers', () => {
-		const results = Random.array(100, () => Random.number())
+		const results = Random.arr(100, () => Random.number())
 
 		results.forEach(result => {
 			expect(result).toBeDefined()
@@ -284,7 +281,7 @@ describe('Random.number', () => {
 	})
 
 	it('Should return random numbers in given range', () => {
-		const results = Random.array(100, () => Random.number(125, 8893))
+		const results = Random.arr(100, () => Random.number(125, 8893))
 
 		results.forEach(result => {
 			expect(result).toBeDefined()
@@ -303,8 +300,8 @@ describe('Random.powerOfTwo', () => {
 		expect(Random.powerOfTwo()).toBeDefined()
 	})
 
-	it('Should return random array, with powerOfTwo values', () => {
-		const results = Random.array(100, () => Random.powerOfTwo(10))
+	it('Should return random arr, with powerOfTwo values', () => {
+		const results = Random.arr(100, () => Random.powerOfTwo(10))
 
 		results.forEach(result => {
 			expect(result).toBeDefined()
@@ -323,8 +320,8 @@ describe('Random.boolean', () => {
 		expect(Random.boolean()).toBeDefined()
 	})
 
-	it('Should return random array, with boolean values', () => {
-		const results = Random.array(100, () => Random.boolean(100))
+	it('Should return random arr, with boolean values', () => {
+		const results = Random.arr(100, () => Random.boolean(100))
 
 		results.forEach(result => {
 			expect(result).toBeDefined()
@@ -336,13 +333,13 @@ describe('Random.boolean', () => {
 	})
 })
 
-describe('Random.array', () => {
-	it('Should return random array', () => {
-		expect(Random.array()).toBeDefined()
+describe('Random.arr', () => {
+	it('Should return random arr', () => {
+		expect(Random.arr()).toBeDefined()
 	})
 
-	it('Should return random array, with given value', () => {
-		const results = Random.array(100, 'some value')
+	it('Should return random arr, with given value', () => {
+		const results = Random.arr(100, 'some value')
 
 		expect(results).toHaveLength(100)
 		results.forEach(result => {
@@ -350,8 +347,8 @@ describe('Random.array', () => {
 		})
 	})
 
-	it('Should return random array, with given callback result', () => {
-		const results = Random.array(100, () => 'some value')
+	it('Should return random arr, with given callback result', () => {
+		const results = Random.arr(100, () => 'some value')
 
 		expect(results).toHaveLength(100)
 		results.forEach(result => {
@@ -359,8 +356,8 @@ describe('Random.array', () => {
 		})
 	})
 
-	it('Random.array', () => {
-		expect(Random.array()).toBeTruthy()
+	it('Random.arr', () => {
+		expect(Random.arr()).toBeTruthy()
 	})
 })
 
@@ -386,95 +383,95 @@ describe('Random.numbers', () => {
 	})
 })
 
-describe('Random.arrayValues', () => {
-	it('Should return random arrayValues', () => {
-		expect(Random.arrayValues(EXAMPLE_ARRAY)).toBeDefined()
+describe('Random.arrValues', () => {
+	it('Should return random arrValues', () => {
+		expect(Random.arrValues(_ARR)).toBeDefined()
 	})
 
-	it('Should return random values from given array', () => {
-		Random.arrayValues(EXAMPLE_ARRAY).forEach(v => {
-			expect(EXAMPLE_ARRAY.includes(v)).toBe(true)
+	it('Should return random values from given arr', () => {
+		Random.arrValues(_ARR).forEach(v => {
+			expect(_ARR.includes(v)).toBe(true)
 		})
 	})
 
-	it('Random.arrayValues', () => {
-		expect(Random.arrayValues([1, 2, 3, 4, 5])).toBeTruthy()
+	it('Random.arrValues', () => {
+		expect(Random.arrValues([1, 2, 3, 4, 5])).toBeTruthy()
 	})
 })
 
-describe('Random.arrayUnicals', () => {
-	it('Should return random arrayUnicals', () => {
-		expect(Random.arrayUnicals(EXAMPLE_ARRAY)).toBeDefined()
+describe('Random.arrUnicals', () => {
+	it('Should return random arrUnicals', () => {
+		expect(Random.arrUnicals(_ARR)).toBeDefined()
 	})
 
-	it('Should return unical values of given array', () => {
-		const result = Random.arrayUnicals(EXAMPLE_ARRAY)
+	it('Should return unical values of given arr', () => {
+		const result = Random.arrUnicals(_ARR)
 
-		expect(result).toEqual([...new Set([...EXAMPLE_ARRAY])])
+		expect(result).toEqual([...new Set([..._ARR])])
 	})
 
-	it('Random.arrayUnicals', () => {
-		expect(Random.arrayUnicals([1, 2, 3, 4, 5])).toBeTruthy()
-	})
-})
-
-describe('Random.arrayShuffle', () => {
-	it('Should return random arrayShuffle', () => {
-		expect(Random.arrayShuffle(EXAMPLE_ARRAY)).toBeDefined()
-	})
-
-	it('Should shuffle given array', () => {
-		const result = Random.arrayShuffle(EXAMPLE_ARRAY)
-
-		expect(result.sort()).toBe(EXAMPLE_ARRAY)
-	})
-
-	it('Random.arrayShuffle', () => {
-		expect(Random.arrayShuffle([1, 2, 3, 4, 5])).toBeTruthy()
+	it('Random.arrUnicals', () => {
+		expect(Random.arrUnicals([1, 2, 3, 4, 5])).toBeTruthy()
 	})
 })
 
-describe('Random.arrayIndex', () => {
-	it('Should return random arrayIndex', () => {
-		expect(Random.arrayIndex(EXAMPLE_ARRAY)).toBeDefined()
+describe('Random.arrShuffle', () => {
+	it('Should return random arrShuffle', () => {
+		expect(Random.arrShuffle(_ARR)).toBeDefined()
 	})
 
-	it('Should return random index of given array', () => {
-		const result = Random.arrayIndex(EXAMPLE_ARRAY)
+	it('Should shuffle given arr', () => {
+		const result = Random.arrShuffle(_ARR)
 
-		expect(EXAMPLE_ARRAY[result]).toBeTruthy()
+		expect(result.sort()).toBe(_ARR)
 	})
 
-	it('Random.arrayIndex', () => {
-		expect(Random.arrayIndex([1, 2, 3, 4, 5])).toBeGreaterThanOrEqual(0)
+	it('Random.arrShuffle', () => {
+		expect(Random.arrShuffle([1, 2, 3, 4, 5])).toBeTruthy()
 	})
 })
 
-describe('Random.arrayElement', () => {
-	it('Should return random arrayElement', () => {
-		expect(Random.arrayElement(EXAMPLE_ARRAY)).toBeDefined()
+describe('Random.arrIndex', () => {
+	it('Should return random arrIndex', () => {
+		expect(Random.arrIndex(_ARR)).toBeDefined()
 	})
 
-	it('Should return random element of given array', () => {
-		const result = Random.arrayElement(EXAMPLE_ARRAY)
+	it('Should return random index of given arr', () => {
+		const result = Random.arrIndex(_ARR)
 
-		expect(EXAMPLE_ARRAY.includes(result)).toBe(true)
+		expect(_ARR[result]).toBeTruthy()
 	})
 
-	it('Random.arrayElement', () => {
-		expect(Random.arrayElement([1, 2, 3, 4, 5])).toBeTruthy()
+	it('Random.arrIndex', () => {
+		expect(Random.arrIndex([1, 2, 3, 4, 5])).toBeGreaterThanOrEqual(0)
+	})
+})
+
+describe('Random.arrElement', () => {
+	it('Should return random arrElement', () => {
+		expect(Random.arrElement(_ARR)).toBeDefined()
+	})
+
+	it('Should return random element of given arr', () => {
+		const result = Random.arrElement(_ARR)
+
+		expect(_ARR.includes(result)).toBe(true)
+	})
+
+	it('Random.arrElement', () => {
+		expect(Random.arrElement([1, 2, 3, 4, 5])).toBeTruthy()
 	})
 })
 
 describe('Random.objectKey', () => {
 	it('Should return random objectKey', () => {
-		expect(Random.objectKey(EXAMPLE_OBJECT)).toBeDefined()
+		expect(Random.objectKey(_OBJECT)).toBeDefined()
 	})
 
 	it('Should return  random key of given object', () => {
-		const result = Random.objectKey(EXAMPLE_OBJECT)
+		const result = Random.objectKey(_OBJECT)
 
-		expect(EXAMPLE_OBJECT).toHaveProperty(result)
+		expect(_OBJECT).toHaveProperty(result)
 	})
 
 	it('Random.objectKey', () => {
@@ -484,13 +481,13 @@ describe('Random.objectKey', () => {
 
 describe('Random.objectValue', () => {
 	it('Should return random objectValue', () => {
-		expect(Random.objectValue(EXAMPLE_OBJECT)).toBeDefined()
+		expect(Random.objectValue(_OBJECT)).toBeDefined()
 	})
 
 	it('Should return  random value of given object', () => {
-		const result = Random.objectValue(EXAMPLE_OBJECT)
+		const result = Random.objectValue(_OBJECT)
 
-		expect(Object.values(EXAMPLE_OBJECT).includes(result)).toBe(true)
+		expect(Object.values(_OBJECT).includes(result)).toBe(true)
 	})
 
 	it('Random.objectValue', () => {
@@ -500,13 +497,13 @@ describe('Random.objectValue', () => {
 
 describe('Random.objectEntry', () => {
 	it('Should return random objectEntry', () => {
-		expect(Random.objectEntry(EXAMPLE_OBJECT)).toBeDefined()
+		expect(Random.objectEntry(_OBJECT)).toBeDefined()
 	})
 
 	it('Should return  random entry of given object', () => {
-		const [key, value] = Random.objectEntry(EXAMPLE_OBJECT)
+		const [key, value] = Random.objectEntry(_OBJECT)
 
-		expect(EXAMPLE_OBJECT[key]).toBe(value)
+		expect(_OBJECT[key]).toBe(value)
 	})
 
 	it('Random.objectEntry', () => {

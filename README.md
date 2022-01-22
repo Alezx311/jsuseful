@@ -83,13 +83,13 @@ const data = Random.boolean(50)
 const data = Random.boolean(5)
 ```
 
-`Random.array(size: number = 10, value = () => this.number()): any[] | boolean`
+`Random.arr(size: number = 10, value = () => this.number()): any[] | boolean`
 
 ```javascript
-const data = Random.array()
-const data = Random.array(20, 'some string')
-const data = Random.array(100, () => Random.range())
-const data = Random.array(100, (v, i) => Random.number(i + 1, i + 10))
+const data = Random.arr()
+const data = Random.arr(20, 'some string')
+const data = Random.arr(100, () => Random.range())
+const data = Random.arr(100, (v, i) => Random.number(i + 1, i + 10))
 ```
 
 `Random.numbers(min: number = 1, max: number = 100, size: number = 10): number[] | boolean`
@@ -99,34 +99,34 @@ const data = Random.numbers(1, 5, 100)
 const data = Random.numbers(234, 6823, 35)
 ```
 
-`Random.arrayIndex(array: any[]): any`
+`Random.arrIndex(arr: any[]): any`
 
 ```javascript
-const data = Random.arrayIndex([1, 2, 3, 4])
+const data = Random.arrIndex([1, 2, 3, 4])
 ```
 
-`Random.arrayElement(array: any[]): any | boolean`
+`Random.arrElement(arr: any[]): any | boolean`
 
 ```javascript
-const data = Random.arrayElement([1, 2, 3, 4])
+const data = Random.arrElement([1, 2, 3, 4])
 ```
 
-`Random.arrayValues(array: any[], size: number = 10): any[] | boolean`
+`Random.arrValues(arr: any[], size: number = 10): any[] | boolean`
 
 ```javascript
-const data = Random.arrayValues([1, 2, 3, 54], 7)
+const data = Random.arrValues([1, 2, 3, 54], 7)
 ```
 
-`Random.arrayUnicals(array: any[]): any[] | boolean`
+`Random.arrUnicals(arr: any[]): any[] | boolean`
 
 ```javascript
-const data = Random.arrayUnicals([1, 2, 2, 2, 3])
+const data = Random.arrUnicals([1, 2, 2, 2, 3])
 ```
 
-`Random.arrayShuffle(array: any[]): any[] | boolean`
+`Random.arrShuffle(arr: any[]): any[] | boolean`
 
 ```javascript
-const data = Random.arrayShuffle([1, 2, 3, 4, 5])
+const data = Random.arrShuffle([1, 2, 3, 4, 5])
 ```
 
 `Random.objectKey(obj: object): string | boolean`

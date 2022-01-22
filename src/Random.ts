@@ -1,204 +1,170 @@
-import { A, B, DeepA, N, O, Entry, S, Value } from './types'
+import { ObjE, ObjK, ObjV } from './Exp'
+import { A, ANY, B, N, O, S } from './types'
 
-export class Random {
-	//* Returns random numbers arr
-	public static numbersDeep = (len: N = 10, max: N = 4): DeepA<N> => {
-		return this.numbers(len, max).map(v => {
-			return v > 1 ? this.numbers(v, max) : v
-		})
-	}
-	//* Returns random values
-	public static values = (arr: A): A => this.array(10).map(v => this.arrayElement(arr))
+//* Returns random nums arr
+export const numsDeep = (len: N = 10, max: N = 4) => nums(len, max).map((v: ANY) => (v > 1 ? nums(v, max) : v))
 
-	//* Returns random range
-	public static range(min: N = 0.01, max: N = 0.99, size: N = 2): N {
-		return Number((Math.random() * (max - min) + min).toFixed(size))
-	}
+//* Returns random values
+export const values = (arr: A) => arrGen(10).map((v: ANY) => arrElement(arr))
 
-	//* Random integer
-	public static number(min: N = 1, max: N = 100): N {
-		return ~~(min + Math.random() * (max + 1 - min))
-	}
+//* Returns random num
+export const rand = (): N => Math.random()
 
-	//* Returns random power of two
-	public static powerOfTwo(min: N = 1, max: N = 10): N {
-		return 2 ** ~~this.number(min, max)
-	}
+//* Returns random range
+export const range = (min: N = 0.01, max: N = 0.99, size: N = 2): N =>
+	Number((rand() * (max - min) + min).toFixed(size))
 
-	//* Boolean with given chance
-	public static boolean(chance: N = 50): B {
-		return this.number(1, 100) > chance
-	}
+//* Random integer
+export const num = (min: N = 1, max: N = 100): N => ~~(min + rand() * (max + 1 - min))
 
-	//* Returns random arr, can create element from given callback
-	public static array(size: N = 10, cb = () => this.number()): A<N> {
-		return Array(size)
-			.fill(cb)
-			.map(v => (v instanceof Function ? v() : v))
-	}
+//* Returns random power of two
+export const powerOfTwo = (min: N = 1, max: N = 10): N => 2 ** ~~num(min, max)
 
-	//* Returns random numbers arr
-	public static numbers(size?: N, min?: N, max?: N): A<N> {
-		return this.array(size, () => this.number(min, max))
-	}
+//* Boolean with given chance
+export const boolean = (chance: N = 50): B => num(1, 100) > chance
 
-	//* Return Random arrays
-	public static arrays = (size: N = 10, maxDeep: N = 5): DeepA<N> =>
-		this.array(size).map(v => this.array(this.number(2, maxDeep)))
+//* Returns random arr, can create element from given callback
+export const arrGen = (size: N = 10, cb = () => num()): A<N> =>
+	Array(size)
+		.fill(cb)
+		.map(v => (v instanceof Function ? v() : v))
 
-	//* Return Random arrayGrow
-	public static arrayGrow = (arr: A, growSize: N = 2): A => {
-		return Array(growSize)
-			.fill(arr)
-			.reduce((acc, v) => [...acc, v], [])
-	}
+//* Returns random nums arr
+export const nums = (size?: N, min?: N, max?: N): A<N> => arrGen(size, () => num(min, max))
 
-	//* Return Random example
-	public static example = (size: N = 10): A<N> => this.numbers(size)
+//* Return Random arrs
+export const arrs = (size: N = 10, maxDeep: N = 5) => arrGen(size).map(() => arrGen(num(2, maxDeep)))
 
-	//* Return Random arrayExamples
-	public static arrayExamples = (size: N = 10): A => this.array(size).map(v => this.example(size))
+//* Return Random arrGrow
+export const arrGrow = <T1 extends A>(arr: T1, growSize: N = 2) =>
+	arrGen(growSize).reduce((acc: ANY[]) => [...acc, ...arr], [])
 
-	//* Return Random arraySequence
-	public static arraySequence = (start: N = 1, end: N = 100): A => this.array(end).map((v, i) => start + i)
+//* Return Random example
+export const example = (size: N = 10): A<N> => nums(size)
 
-	//* Return Random arrayChange
-	public static arrayChange = (size: N = 10, arr: A): A =>
-		this.arrayElement(this.array(size).map(v => this.arrayShuffle(arr)))
+//* Return Random arrExamples
+export const arrExamples = (size: N = 10) => arrGen(size).map(() => example(size))
 
-	//* Return Random arrayMerge
-	public static arrayMerge = (...arrays: A): A => [...new Set(arrays.reduce((acc, arr) => [...acc, ...arr], []))]
+//* Return Random arrSequence
+export const arrSequence = (start: N = 1, end: N = 100) => arrGen(end).map((v, i) => start + i)
 
-	//* Return Random arrayDouble
-	public static arrayDouble = (arr: A): A => [arr, arr]
+//* Return Random arrChange
+export const arrChange = (size: N = 10, arr: A) => arrElement(arrGen(size).map(v => arrShuffle(arr)))
 
-	//* Return Random arrayRepeats
-	public static arrayRepeats = (arr: A, repeats: N = 2): A => Array(repeats).fill(arr).flat(Infinity)
+//* Return Random arrMerge
+export const arrMerge = <T1 extends A<A>>(...arrs: T1) => [...new Set(arrs.reduce((acc, arr) => [...acc, ...arr], []))]
 
-	//* Return Random arrayShuffles
-	public static arrayShuffles = (arr: A, repeats: N = 2): A => this.arrayShuffle(this.arrayRepeats(arr, repeats))
+//* Return Random arrDouble
+export const arrDouble = <T1 extends A>(arr: T1) => [arr, arr]
 
-	//* Return Random arrayShuffleUnicals
-	public static arrayShuffleUnicals = (arr: A): A => this.arrayUnicals(this.arrayShuffle(arr))
+//* Return Random arrRepeats
+export const arrRepeats = <T1 extends A>(arr: T1, repeats: N = 2) =>
+	arrGen(repeats).reduce((acc: T1[]) => [...acc, ...arr], [])
 
-	//* Return Random arrayDoubleSome
+//* Return Random arrShuffles
+export const arrShuffles = <T1 extends A>(arr: T1, repeats: N = 2) => arrShuffle(arrRepeats(arr, repeats))
 
-	public static arrayDoubleSome = (arr: A, chance: N = 50): A =>
-		this.arrayShuffles(arr).map(v => (this.boolean(chance) ? [v, v] : v))
+//* Return Random arrShuffleUnicals
+export const arrShuffleUnicals = <T1 extends A>(arr: T1) => arrUnicals(arrShuffle(arr))
 
-	//* Random index from given arr
-	public static arrayIndex(arr: A): N {
-		const endIndex = ~~arr?.length - 1
-		return endIndex > 0 ? this.number(0, endIndex) : 0
-	}
+//* Return Random arrDoubleSome
 
-	//* Random Element from given arr
-	public static arrayElement(arr: A): O {
-		return arr?.[this.arrayIndex(arr)] ?? null
-	}
+export const arrDoubleSome = <T1 extends A>(arr: T1, chance: N = 50) =>
+	arrShuffles(arr).map(v => (boolean(chance) ? [v, v] : v))
 
-	//* Array of random elements from given arr... GENIUS BLYAT
-	public static arrayValues(arr: A, size: N = 2): A {
-		return this.array(size, () => this.arrayElement(arr))
-	}
+//* Random index from given arr
+export const arrIndex = <T1 extends A>(arr: T1): N => (!!arr?.length ? num(0, arr.length - 1) : 0)
 
-	//* Only unical values
-	public static arrayUnicals(arr: A): A {
-		return [...new Set(arr)]
-	}
+//* Random Element from given arr
+export const arrElement = <T1 extends A>(arr: T1): T1[N] => {
+	return arr?.[arrIndex(arr)] ?? null
+}
 
-	//* Shuffle elements
-	public static arrayShuffle(arr: A): A {
-		if (!arr?.length) {
-			return []
-		}
+//* arr of random elements from given arr... GENIUS BLYAT
+export const arrValues = <T1 extends A>(arr: T1, size: N = 2) => arrGen(size, () => arrElement(arr))
 
-		return arr.sort(() => Math.random() - 0.5)
-	}
+//* Only unical values
+export const arrUnicals = <T1 extends A>(arr: T1) => [...new Set(arr)]
 
-	//* Random part of arr
-	public static arrayPart(arr: A): A {
-		if (!arr?.length) return []
-		if (~~arr?.length < 3) return [arr[0]]
+//* Shuffle elements
+export const arrShuffle = <T1 extends A>(arr: T1) => (!arr?.length ? [] : arr.sort(() => rand() - 0.5))
 
-		const startIndex = this.number(0, arr?.length - 2)
-		const endIndex = this.number(startIndex, arr?.length - 1)
+//* Random part of arr
+export const arrPart = <T1 extends A>(arr: T1) => {
+	if (!arr?.length) return []
+	if (~~arr?.length < 3) return [arr[0]]
 
-		return arr.slice(startIndex, endIndex)
-	}
+	const startIndex = num(0, arr?.length - 2)
+	const endIndex = num(startIndex, arr?.length - 1)
 
-	//* Transform random values of arr to another arr
-	public static arrayDeepSomeValues(arr: A, chance?: N): DeepA<A> {
-		return arr.reduce((acc, v) => {
-			if (this.boolean(chance)) {
-				return [...acc, [v, v]]
-			} else {
-				return [...acc, v]
-			}
-		}, [])
-	}
+	return arr.slice(startIndex, endIndex)
+}
 
-	//* Return random string, created from given strings arr
-	public static joinedStrings(parts: S[], size?: N): S {
-		const filtered = parts.map(str => str.trim().match(/[a-z]/gi)?.join(''))
-		return this.arrayValues(filtered, size).join('')
-	}
+//* Transform random values of arr to another arr
+export const arrDeepSomeValues = <T1 extends A>(arr: T1, chance?: N) =>
+	arr.reduce((acc, v) => [...acc, boolean(chance) ? [v, v] : v], [])
 
-	//* Return random lines from given text
-	public static textLines(text: S, size?: N): A<S> {
-		return this.arrayValues(text.split('\n'), size)
-	}
+//* Return matched text, from given string
+export const matchText = (str: S): S => (str.trim().match(/[a-z]/gi) || []).join('')
 
-	//* Returns random objectKey
-	public static objectKey(obj: O = {}): S {
-		const arr = Object.keys(obj)
-		return arr?.length ? this.arrayElement(arr) : null
-	}
+//* Return random string, created from given strings arr
+export const joinedStrings = (parts: A<S>, size: N): S => parts.map(matchText).slice(0, size).join('')
 
-	//* Returns random objectValue
-	public static objectValue(obj: O = {}): Value {
-		const arr = Object.values(obj)
-		return arr?.length ? this.arrayElement(arr) : null
-	}
+//* Return random lines from given text
+export const textLines = (text: S, size: N) => text.split('\n').slice(0, ~~size)
 
-	//* Returns random objectEntry
-	public static objectEntry(obj: O = {}): Entry {
-		const arr = Object.entries(obj)
-		return arr?.length ? this.arrayElement(arr) : null
-	}
+//* Returns random objectKey
+export const objectKey = <T1 extends O>(obj: T1): keyof T1 => {
+	const arr = ObjK(obj)
+	return arr?.length ? arrElement(arr) : ''
+}
+
+//* Returns random objectValue
+
+export const objectValue = <T1 extends O>(obj: T1): T1[keyof T1] => {
+	const arr = ObjV(obj)
+	return arr?.length ? arrElement(arr) : null
+}
+
+//* Returns random objectEntry
+export const objectEntry = <T1 extends O>(obj: T1): A<[keyof T1, T1[keyof T1]]> => {
+	const arr = ObjE(obj)
+	return arr?.length ? arrElement(arr) : ['', null]
 }
 
 export default {
-	numbersDeep: Random.numbersDeep,
-	values: Random.values,
-	range: Random.range,
-	number: Random.number,
-	powerOfTwo: Random.powerOfTwo,
-	boolean: Random.boolean,
-	array: Random.array,
-	numbers: Random.numbers,
-	arrays: Random.arrays,
-	arrayGrow: Random.arrayGrow,
-	example: Random.example,
-	arrayExamples: Random.arrayExamples,
-	arraySequence: Random.arraySequence,
-	arrayChange: Random.arrayChange,
-	arrayMerge: Random.arrayMerge,
-	arrayDouble: Random.arrayDouble,
-	arrayRepeats: Random.arrayRepeats,
-	arrayShuffles: Random.arrayShuffles,
-	arrayShuffleUnicals: Random.arrayShuffleUnicals,
-	arrayDoubleSome: Random.arrayDoubleSome,
-	arrayIndex: Random.arrayIndex,
-	arrayElement: Random.arrayElement,
-	arrayValues: Random.arrayValues,
-	arrayUnicals: Random.arrayUnicals,
-	arrayShuffle: Random.arrayShuffle,
-	arrayPart: Random.arrayPart,
-	arrayDeepSomeValues: Random.arrayDeepSomeValues,
-	joinedStrings: Random.joinedStrings,
-	textLines: Random.textLines,
-	objectKey: Random.objectKey,
-	objectValue: Random.objectValue,
-	objectEntry: Random.objectEntry,
+	numsDeep,
+	values,
+	rand,
+	range,
+	num,
+	powerOfTwo,
+	boolean,
+	arrGen,
+	nums,
+	arrs,
+	arrGrow,
+	example,
+	arrExamples,
+	arrSequence,
+	arrChange,
+	arrMerge,
+	arrDouble,
+	arrRepeats,
+	arrShuffles,
+	arrShuffleUnicals,
+	arrDoubleSome,
+	arrIndex,
+	arrElement,
+	arrValues,
+	arrUnicals,
+	arrShuffle,
+	arrPart,
+	arrDeepSomeValues,
+	matchText,
+	joinedStrings,
+	textLines,
+	objectKey,
+	objectValue,
+	objectEntry,
 }
