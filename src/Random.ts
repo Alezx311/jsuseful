@@ -35,9 +35,13 @@ export const nums = (size?: N, min?: N, max?: N): A<N> => arrGen(size, () => num
 //* Return Random arrs
 export const arrs = (size: N = 10, maxDeep: N = 5) => arrGen(size).map(() => arrGen(num(2, maxDeep)))
 
+export const arrReducer = (acc: A, val: A) => [...acc, ...val]
+
 //* Return Random arrGrow
-export const arrGrow = <T1 extends A>(arr: T1, growSize: N = 2) =>
-	arrGen(growSize).reduce((acc: ANY[]) => [...acc, ...arr], [])
+export const arrGrow = <T1 extends A>(arr: T1, growSize: N = 2) => [
+	...arr,
+	...arrGen(growSize).map((v, i: N) => arr[i]),
+]
 
 //* Return Random example
 export const example = (size: N = 10): A<N> => nums(size)
@@ -52,7 +56,7 @@ export const arrSequence = (start: N = 1, end: N = 100) => arrGen(end).map((v, i
 export const arrChange = (size: N = 10, arr: A) => arrElement(arrGen(size).map(v => arrShuffle(arr)))
 
 //* Return Random arrMerge
-export const arrMerge = <T1 extends A<A>>(...arrs: T1) => [...new Set(arrs.reduce((acc, arr) => [...acc, ...arr], []))]
+export const arrMerge = <T1 extends A<A>>(...arrs: T1) => [...new Set(arrs.reduce(arrReducer))]
 
 //* Return Random arrDouble
 export const arrDouble = <T1 extends A>(arr: T1) => [arr, arr]
@@ -76,9 +80,7 @@ export const arrDoubleSome = <T1 extends A>(arr: T1, chance: N = 50) =>
 export const arrIndex = <T1 extends A>(arr: T1): N => (!!arr?.length ? num(0, arr.length - 1) : 0)
 
 //* Random Element from given arr
-export const arrElement = <T1 extends A>(arr: T1): T1[N] => {
-	return arr?.[arrIndex(arr)] ?? null
-}
+export const arrElement = <T1 extends A>(arr: T1): T1[N] => arr?.[arrIndex(arr)] ?? null
 
 //* arr of random elements from given arr... GENIUS BLYAT
 export const arrValues = <T1 extends A>(arr: T1, size: N = 2) => arrGen(size, () => arrElement(arr))
@@ -114,23 +116,14 @@ export const joinedStrings = (parts: A<S>, size: N): S => parts.map(matchText).s
 export const textLines = (text: S, size: N) => text.split('\n').slice(0, ~~size)
 
 //* Returns random objectKey
-export const objectKey = <T1 extends O>(obj: T1): keyof T1 => {
-	const arr = ObjK(obj)
-	return arr?.length ? arrElement(arr) : ''
-}
+export const objectKey = <T1 extends O>(obj: T1): keyof T1 => arrElement(ObjK(obj))
 
 //* Returns random objectValue
 
-export const objectValue = <T1 extends O>(obj: T1): T1[keyof T1] => {
-	const arr = ObjV(obj)
-	return arr?.length ? arrElement(arr) : null
-}
+export const objectValue = <T1 extends O>(obj: T1): T1[keyof T1] => arrElement(ObjV(obj))
 
 //* Returns random objectEntry
-export const objectEntry = <T1 extends O>(obj: T1): A<[keyof T1, T1[keyof T1]]> => {
-	const arr = ObjE(obj)
-	return arr?.length ? arrElement(arr) : ['', null]
-}
+export const objectEntry = <T1 extends O>(obj: T1): A<[keyof T1, T1[keyof T1]]> => arrElement(ObjE(obj))
 
 export default {
 	numsDeep,
