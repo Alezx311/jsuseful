@@ -1,8 +1,8 @@
 import { N } from './types';
 export declare const STR = "Some string value";
-export declare const RND: number;
-export declare const BLN: boolean;
-export declare const NUM: number;
+export declare const RND = 0.311;
+export declare const BLN = false;
+export declare const NUM = 237563390;
 export declare const ARR: (string | number)[];
 export declare const OBJ: {
     STR: string;
@@ -10,7 +10,7 @@ export declare const OBJ: {
 };
 export declare const ERR: Error;
 export declare const BIG: number;
-export declare const FUNC: () => number;
+export declare const FUNC: (v: any) => number;
 declare const PRIVATE_MUSIC_NOTES_CHARS: readonly ["A", "B", "C", "D", "F", "E", "G"];
 declare const PRIVATE_MUSIC_NOTES_BEMOLE: readonly ["A", "B", "C", "D", "F", "E", "G", "Bb", "Db", "Fb", "Gb", "Ab"];
 declare const PRIVATE_MUSIC_NOTES_SHARP: readonly ["A", "B", "C", "D", "F", "E", "G", "A#", "C#", "D#", "E#", "G#"];

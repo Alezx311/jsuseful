@@ -1,8 +1,5 @@
 const { JsUseful } = require('../lib/src')
 
-console.log(Object.keys(JsUseful))
-
-
 const cb = v => (v ? true : false)
 const getValue = desc => JsUseful?.[desc]
 const getType = desc => typeof JsUseful?.[desc]
@@ -46,37 +43,53 @@ const vArr = ({ value }) =>
 		expect(Array.isArray(value)).toBe(true)
 		expect(value.length).toBeGreaterThanOrEqual(0)
 	})
-const CONSTANT_VALUES = [
-	{ desc: 'STR', cb: v => typeof v === 'string' },
-	{ desc: 'BLN', cb: v => typeof v === 'boolean' },
-	{ desc: 'NUM', cb: v => typeof v === 'number' },
-	{ desc: 'RND', cb: v => typeof v === 'number' },
-	{ desc: 'ARR', cb: v => typeof v === 'object' },
-	{ desc: 'OBJ', cb: v => typeof v === 'object' },
-	{ desc: 'ERR', cb: v => v instanceof Error },
-	{ desc: 'BIG' },
-	{ desc: 'FUNC', cb: v => typeof v === 'function' && typeof v() === 'number' },
-]
-	.map(mapper)
-	.map(src => {
-		describe(src.desc, () => {
-			vDesc(src)
-			vValue(src)
-			vCallback(src)
-		})
-	})
-
-const CONSTANTS_ARRAYS = [
-	{ desc: 'TYPEOF' },
-	{ desc: 'MUSIC_NOTES_CHARS' },
-	{ desc: 'MUSIC_NOTES_BEMOLE' },
-	{ desc: 'MUSIC_NOTES_SHARP' },
-	{ desc: 'MUSIC_DURATION_CHARS' },
-	{ desc: 'MUSIC_INTERVAL_CHARS' },
-	{ desc: 'MUSIC_SCALES' },
-	{ desc: 'COLOR_CLASS' },
-	{ desc: 'COLOR_NAMES' },
-	{ desc: 'COLOR_CODES' },
+const USEFUL_CONSTANTS = [
+	{ desc: 'is' },
+	{ desc: 'isF' },
+	{ desc: 'isO' },
+	{ desc: 'isN' },
+	{ desc: 'isS' },
+	{ desc: 'isA' },
+	{ desc: 'isB' },
+	{ desc: 'isE' },
+	{ desc: 'isNull' },
+	{ desc: 'isUndefined' },
+	{ desc: 'isRegExp' },
+	{ desc: 'isError' },
+	{ desc: 'isDate' },
+	{ desc: 'isSymbol' },
+	{ desc: 'isLen' },
+	{ desc: 'isTruthy' },
+	{ desc: 'isOdd' },
+	{ desc: 'isPalindrome' },
+	{ desc: 'toS' },
+	{ desc: 'toA' },
+	{ desc: 'toO' },
+	{ desc: 'toL' },
+	{ desc: 'toJson' },
+	{ desc: 'toTypeOf' },
+	{ desc: 'toCallback' },
+	{ desc: 'arrLastIndex' },
+	{ desc: 'arrLast' },
+	{ desc: 'arrFlat' },
+	{ desc: 'arrUnical' },
+	{ desc: 'arrUnicals' },
+	{ desc: 'arrMax' },
+	{ desc: 'arrMin' },
+	{ desc: 'arrayQuickSort' },
+	{ desc: 'arrShuffle' },
+	{ desc: 'arrQuickSort' },
+	{ desc: 'objAssign' },
+	{ desc: 'objKeys' },
+	{ desc: 'objValues' },
+	{ desc: 'objEntries' },
+	{ desc: 'objFrom' },
+	{ desc: 'objCreate' },
+	{ desc: 'getTimePerformance' },
+	{ desc: 'timeStamp' },
+	{ desc: 'timeISO' },
+	{ desc: 'timeUTC' },
+	{ desc: 'getSourceValues' },
 ]
 	.map(mapper)
 	.map(src => {
@@ -84,7 +97,5 @@ const CONSTANTS_ARRAYS = [
 		describe(desc, () => {
 			vDesc(src)
 			vValue(src)
-			vCallback(src)
-			vArr(src)
 		})
 	})

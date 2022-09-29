@@ -1,25 +1,25 @@
 import { tTypeOf } from './constants';
 import { A, B, DeepA, Entry, N, O, S, Value } from './types';
-export declare const SIZE = 10;
-export declare const MIN = 0;
-export declare const MAX = 1000000;
-export declare const SOURCES_RANDOM_CONSTANTS: {
+export declare const RANDOM_ARRAY_SIZE = 10;
+export declare const RANDOM_MIN = 0;
+export declare const RANDOM_MAX = 1000000;
+export declare const RANDOM_CONSTANTS_SOURCES: {
     desc: string;
     value: number;
 }[];
-export declare const NUM: number;
-export declare const BOOL: boolean;
-export declare const INT: number;
-export declare const STR: string;
-export declare const SRC: {
+export declare const RANDOM_NUM: number;
+export declare const RANDOM_BOOL: boolean;
+export declare const RANDOM_INT: number;
+export declare const RANDOM_STR: string;
+export declare const RANDOM_SRC: {
     desc: string;
     value: number;
 };
-export declare const ARR: (string | number | boolean | {
+export declare const RANDOM_ARR: (string | number | boolean | {
     desc: string;
     value: number;
 })[];
-export declare const OBJ: {
+export declare const RANDOM_OBJ: {
     NUM: number;
     BOOL: boolean;
     INT: number;
@@ -33,8 +33,8 @@ export declare const OBJ: {
         value: number;
     };
 };
-export declare const TEXT: string;
-export declare const SOURCES_RANDOM_VALUES: ({
+export declare const RANDOM_TEXT: string;
+export declare const RANDOM_VALUES_SOURCES: ({
     desc: string;
     value: number;
 } | {
@@ -95,7 +95,7 @@ export declare const randomObject: (size?: N, input?: any) => {
 export declare const randomKey: (value?: O) => any;
 export declare const randomValue: (value?: O) => any;
 export declare const randomEntry: (value?: O) => any;
-export declare const SOURCES_RANDOM_EXAMPLES: ({
+export declare const RANDOM_EXAMPLES_SOURCES: ({
     desc: string;
     value: boolean;
     func: (chance?: N) => boolean;

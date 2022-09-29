@@ -195,26 +195,26 @@ export declare const JSUSEFUL_REDUCED: {
     }>) | null)[];
     dictionaryReplace: (text: string, dict: import("./types").A<any>) => string;
     toRomanNumeral: (input: string) => string;
-    SIZE: 10;
-    MIN: 0;
-    MAX: 1000000;
-    SOURCES_RANDOM_CONSTANTS: {
+    RANDOM_ARRAY_SIZE: 10;
+    RANDOM_MIN: 0;
+    RANDOM_MAX: 1000000;
+    RANDOM_CONSTANTS_SOURCES: {
         desc: string;
         value: number;
     }[];
-    NUM: number;
-    BOOL: boolean;
-    INT: number;
-    STR: string;
-    SRC: {
+    RANDOM_NUM: number;
+    RANDOM_BOOL: boolean;
+    RANDOM_INT: number;
+    RANDOM_STR: string;
+    RANDOM_SRC: {
         desc: string;
         value: number;
     };
-    ARR: (string | number | boolean | {
+    RANDOM_ARR: (string | number | boolean | {
         desc: string;
         value: number;
     })[];
-    OBJ: {
+    RANDOM_OBJ: {
         NUM: number;
         BOOL: boolean;
         INT: number;
@@ -228,8 +228,8 @@ export declare const JSUSEFUL_REDUCED: {
             value: number;
         };
     };
-    TEXT: string;
-    SOURCES_RANDOM_VALUES: ({
+    RANDOM_TEXT: string;
+    RANDOM_VALUES_SOURCES: ({
         desc: string;
         value: number;
     } | {
@@ -290,7 +290,7 @@ export declare const JSUSEFUL_REDUCED: {
     randomKey: (value?: any) => any;
     randomValue: (value?: any) => any;
     randomEntry: (value?: any) => any;
-    SOURCES_RANDOM_EXAMPLES: ({
+    RANDOM_EXAMPLES_SOURCES: ({
         desc: string;
         value: boolean;
         func: (chance?: number) => boolean;
@@ -394,11 +394,18 @@ export declare const JSUSEFUL_REDUCED: {
     objectKey: (obj?: any) => string;
     objectValue: (obj?: any) => import("./types").Value;
     objectEntry: (obj?: any) => import("./types").Entry;
-    RND: number;
-    BLN: boolean;
+    STR: "Some string value";
+    RND: 0.311;
+    BLN: false;
+    NUM: 237563390;
+    ARR: (string | number)[];
+    OBJ: {
+        STR: string;
+        NUM: number;
+    };
     ERR: Error;
     BIG: number;
-    FUNC: () => number;
+    FUNC: (v: any) => number;
     TYPEOF: string[];
     MUSIC_NOTES_CHARS: ("A" | "B" | "C" | "D" | "F" | "E" | "G")[];
     MUSIC_NOTES_BEMOLE: ("A" | "B" | "C" | "D" | "F" | "E" | "G" | "Bb" | "Db" | "Fb" | "Gb" | "Ab")[];
@@ -546,26 +553,26 @@ export declare const JsUseful: {
         }>) | null)[];
         dictionaryReplace: (text: string, dict: import("./types").A<any>) => string;
         toRomanNumeral: (input: string) => string;
-        SIZE: 10;
-        MIN: 0;
-        MAX: 1000000;
-        SOURCES_RANDOM_CONSTANTS: {
+        RANDOM_ARRAY_SIZE: 10;
+        RANDOM_MIN: 0;
+        RANDOM_MAX: 1000000;
+        RANDOM_CONSTANTS_SOURCES: {
             desc: string;
             value: number;
         }[];
-        NUM: number;
-        BOOL: boolean;
-        INT: number;
-        STR: string;
-        SRC: {
+        RANDOM_NUM: number;
+        RANDOM_BOOL: boolean;
+        RANDOM_INT: number;
+        RANDOM_STR: string;
+        RANDOM_SRC: {
             desc: string;
             value: number;
         };
-        ARR: (string | number | boolean | {
+        RANDOM_ARR: (string | number | boolean | {
             desc: string;
             value: number;
         })[];
-        OBJ: {
+        RANDOM_OBJ: {
             NUM: number;
             BOOL: boolean;
             INT: number;
@@ -579,8 +586,8 @@ export declare const JsUseful: {
                 value: number;
             };
         };
-        TEXT: string;
-        SOURCES_RANDOM_VALUES: ({
+        RANDOM_TEXT: string;
+        RANDOM_VALUES_SOURCES: ({
             desc: string;
             value: number;
         } | {
@@ -641,7 +648,7 @@ export declare const JsUseful: {
         randomKey: (value?: any) => any;
         randomValue: (value?: any) => any;
         randomEntry: (value?: any) => any;
-        SOURCES_RANDOM_EXAMPLES: ({
+        RANDOM_EXAMPLES_SOURCES: ({
             desc: string;
             value: boolean;
             func: (chance?: number) => boolean;
@@ -745,11 +752,18 @@ export declare const JsUseful: {
         objectKey: (obj?: any) => string;
         objectValue: (obj?: any) => import("./types").Value;
         objectEntry: (obj?: any) => import("./types").Entry;
-        RND: number;
-        BLN: boolean;
+        STR: "Some string value";
+        RND: 0.311;
+        BLN: false;
+        NUM: 237563390;
+        ARR: (string | number)[];
+        OBJ: {
+            STR: string;
+            NUM: number;
+        };
         ERR: Error;
         BIG: number;
-        FUNC: () => number;
+        FUNC: (v: any) => number;
         TYPEOF: string[];
         MUSIC_NOTES_CHARS: ("A" | "B" | "C" | "D" | "F" | "E" | "G")[];
         MUSIC_NOTES_BEMOLE: ("A" | "B" | "C" | "D" | "F" | "E" | "G" | "Bb" | "Db" | "Fb" | "Gb" | "Ab")[];
@@ -906,26 +920,26 @@ export declare const JsUseful: {
     }>) | null)[];
     dictionaryReplace: (text: string, dict: import("./types").A<any>) => string;
     toRomanNumeral: (input: string) => string;
-    SIZE: 10;
-    MIN: 0;
-    MAX: 1000000;
-    SOURCES_RANDOM_CONSTANTS: {
+    RANDOM_ARRAY_SIZE: 10;
+    RANDOM_MIN: 0;
+    RANDOM_MAX: 1000000;
+    RANDOM_CONSTANTS_SOURCES: {
         desc: string;
         value: number;
     }[];
-    NUM: number;
-    BOOL: boolean;
-    INT: number;
-    STR: string;
-    SRC: {
+    RANDOM_NUM: number;
+    RANDOM_BOOL: boolean;
+    RANDOM_INT: number;
+    RANDOM_STR: string;
+    RANDOM_SRC: {
         desc: string;
         value: number;
     };
-    ARR: (string | number | boolean | {
+    RANDOM_ARR: (string | number | boolean | {
         desc: string;
         value: number;
     })[];
-    OBJ: {
+    RANDOM_OBJ: {
         NUM: number;
         BOOL: boolean;
         INT: number;
@@ -939,8 +953,8 @@ export declare const JsUseful: {
             value: number;
         };
     };
-    TEXT: string;
-    SOURCES_RANDOM_VALUES: ({
+    RANDOM_TEXT: string;
+    RANDOM_VALUES_SOURCES: ({
         desc: string;
         value: number;
     } | {
@@ -1001,7 +1015,7 @@ export declare const JsUseful: {
     randomKey: (value?: any) => any;
     randomValue: (value?: any) => any;
     randomEntry: (value?: any) => any;
-    SOURCES_RANDOM_EXAMPLES: ({
+    RANDOM_EXAMPLES_SOURCES: ({
         desc: string;
         value: boolean;
         func: (chance?: number) => boolean;
@@ -1105,11 +1119,18 @@ export declare const JsUseful: {
     objectKey: (obj?: any) => string;
     objectValue: (obj?: any) => import("./types").Value;
     objectEntry: (obj?: any) => import("./types").Entry;
-    RND: number;
-    BLN: boolean;
+    STR: "Some string value";
+    RND: 0.311;
+    BLN: false;
+    NUM: 237563390;
+    ARR: (string | number)[];
+    OBJ: {
+        STR: string;
+        NUM: number;
+    };
     ERR: Error;
     BIG: number;
-    FUNC: () => number;
+    FUNC: (v: any) => number;
     TYPEOF: string[];
     MUSIC_NOTES_CHARS: ("A" | "B" | "C" | "D" | "F" | "E" | "G")[];
     MUSIC_NOTES_BEMOLE: ("A" | "B" | "C" | "D" | "F" | "E" | "G" | "Bb" | "Db" | "Fb" | "Gb" | "Ab")[];
