@@ -1,5 +1,4 @@
 //! Errors for throwing or returning in functions
-
 import { A, E, S } from './types'
 
 //?	<----- Create errors ----->

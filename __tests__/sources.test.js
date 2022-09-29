@@ -1,5 +1,11 @@
 const { JsUseful } = require('../lib/src')
 
+describe('Is Module Defined', () => {
+	it('Is Module Defined', () => {
+		expect(JsUseful).toBeDefined()
+	})
+})
+
 const cb = v => (v ? true : false)
 const getValue = desc => JsUseful?.[desc]
 const getType = desc => typeof JsUseful?.[desc]
@@ -15,8 +21,6 @@ const vModule = () =>
 			expect(JsUseful).toBeDefined()
 		})
 	})
-
-vModule()
 
 const vDesc = ({ desc }) =>
 	it(desc, () => {

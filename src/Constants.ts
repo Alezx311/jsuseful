@@ -1,5 +1,4 @@
 //! Constant Values for tests, examples, etc...
-
 import { N } from './types'
 
 //?	<----- Primitive Values ----->

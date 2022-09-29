@@ -97,6 +97,7 @@ export const RANDOM_EXAMPLES_SOURCES = [
 
 //? Generate array
 export const genArr = (n: N, v: any = 1) => Array(n).fill(v)
+
 //? Generate array with numbers from 1 to n
 export const genNums = (n: N) => genArr(n).map((v, i) => v + i)
 export const genSources = (n: N) => genArr(n).map((v, i) => ({ desc: 'genSources result', value: n, index: i }))
@@ -119,7 +120,6 @@ export const randomSourceByType = (type?: tTypeOf) => {
 }
 
 //! <----- Music values ----->
-
 export const randomMusicNoteChar = () => randomElement(MUSIC_NOTES_CHARS)
 export const randomMusicNoteBemole = () => randomElement(MUSIC_NOTES_BEMOLE)
 export const randomMusicNoteSharp = () => randomElement(MUSIC_NOTES_SHARP)
@@ -138,7 +138,6 @@ export const randomMusicValues = () => ({
 	octave: randomMusicOctave(),
 	midiIndex: randomMusicMidiIndex(),
 })
-
 export const randomColorClassname = () => randomElement(COLOR_CLASS)
 export const randomColorName = () => randomElement(COLOR_NAMES)
 export const randomColorCode = () => randomElement(COLOR_CODES)
@@ -147,57 +146,59 @@ export const randomColorValues = () => ({
 	name: randomColorName(),
 	code: randomColorCode(),
 })
+
 //! <----- Other random and generate data methods ----->
 
-//* Returns random range
+//? Returns random range
 export const float = (min: N = 0, max: N = 1, fixedSize: N): N => {
 	const num = random() * (max - min) + min
 	return Number(num.toFixed(fixedSize))
 }
 
-//* Random integer
+//? Random integer
 export const number = (min: N = RANDOM_MIN, max: N = RANDOM_MAX): N => {
 	return Math.floor(random() * (max - min) + min)
 }
 
-//* Returns random power of two
+//? Returns random power of two
 export const powerOfTwo = (min: N = RANDOM_MIN, max: N = 10): N => {
 	return 2 ** number(min, max)
 }
 
-//* Returns random numbers arr
+//? Returns random numbers arr
 export const numbersDeep = (len: N = 10, maxDeep: N = 4): DeepA<N> => {
 	return numbers(len, maxDeep).map(v => {
 		return v > 1 ? numbers(v, maxDeep) : v
 	})
 }
-//* Returns random values
+
+//? Returns random values
 export const values = (arr: A): A => array(10).map(v => arrayElement(arr))
 
-//* Boolean with given chance
+//? Boolean with given chance
 export const boolean = (chance: N = 50): B => {
 	return number(1, 100) > chance
 }
 
-//* Returns random arr, can create element from given callback
+//? Returns random arr, can create element from given callback
 export const array = (size: N = RANDOM_ARRAY_SIZE, cb: any = () => number()) => {
 	const arr = Array(size).fill(1)
 	return cb ? (typeof cb === 'function' ? arr.map(cb) : arr.map(() => cb)) : arr
 }
 
-//* Returns random numbers arr
+//? Returns random numbers arr
 export const numbers = (size: N = RANDOM_ARRAY_SIZE, min: N = RANDOM_MIN, max: N = RANDOM_MAX) => {
 	const arr = Array(size).fill(1)
 	return arr.map(() => number(min, max))
 }
 
-//* Return Random arrays
+//? Return Random arrays
 export const arrays = (size: N = 10, maxDeep: N = 5): DeepA<N> => {
 	const arr = array(size).map(() => array(number(2, maxDeep)))
 	return arr
 }
 
-//* Return Random arrayGrow
+//? Return Random arrayGrow
 export const arrayGrow = (arr: A, growSize: N = 2): A => {
 	const result = Array(growSize)
 		.fill(1)
@@ -205,75 +206,72 @@ export const arrayGrow = (arr: A, growSize: N = 2): A => {
 	return result
 }
 
-//* Return Random arraySequence
+//? Return Random arraySequence
 export const arraySequence = (start: N = 1, end: N = 100): A => {
 	const arr = array(end).map((v, i) => start + i)
 	return arr
 }
 
-//* Return Random arrayChange
+//? Return Random arrayChange
 export const arrayChange = (size: N = 10, arr: A): A => {
 	const result = array(size).map(v => arrayShuffle(arr))
 	return arrayElement(result)
 }
 
-//* Return Random arrayMerge
+//? Return Random arrayMerge
 export const arrayMerge = (...arr: A): A => {
 	const total = arr.reduce((acc, el) => [...acc, ...el], [])
 	return [...new Set(total)]
 }
 
-//* Return Random arrayDouble
+//? Return Random arrayDouble
 export const arrayDouble = (arr: A): A => [...arr, ...arr]
 
-//* Return Random arrayRepeats
+//? Return Random arrayRepeats
 export const arrayRepeats = (arr: A, repeats: N = 2): A =>
 	Array(repeats)
 		.fill(arr)
 		.reduce((acc, el) => [...acc, ...el], [])
 
-//* Random index from given arr
+//? Random index from given arr
 export const arrayIndex = (arr: A): N => {
 	const endIndex = ~~arr?.length - 1
 	return endIndex > 0 ? number(0, endIndex) : 0
 }
 
-//* Random Element from given arr
+//? Random Element from given arr
 export const arrayElement = (arr: A): O => {
 	return arr?.[arrayIndex(arr)] ?? null
 }
 
-//* Array of random elements from given arr... GENIUS BLYAT
+//? Array of random elements from given arr... GENIUS BLYAT
 export const arrayElements = (arr: A, size: N = 3): A => {
 	return array(size, () => arrayElement(arr))
 }
 
-//* Only unical values
+//? Only unical values
 export const arrayUnicals = (arr: A): A => {
 	return [...new Set([...arr])]
 }
 
-//* Shuffle elements
+//? Shuffle elements
 export const arrayShuffle = (arr: A): A => {
 	if (!arr?.length) {
 		return []
 	}
-
 	return arr.sort(() => random() - 0.5)
 }
 
-//* Random part of arr
+//? Random part of arr
 export const arrayPart = (arr: A): A => {
 	if (!arr?.length) return []
 	if (~~arr?.length < 3) return [arr[0]]
-
 	const startIndex = number(0, arr?.length - 2)
 	const endIndex = number(startIndex, arr?.length - 1)
-
 	return arr.slice(startIndex, endIndex)
 }
 
-//* Transform random values of arr to another arr
+//? Transform random values of arr to another arr
 export const arrayDeepSomeValues = (arr: A, chance?: N): DeepA<A> => {
 	return arr.reduce((acc, v) => {
 		if (boolean(chance)) {
@@ -284,25 +282,25 @@ export const arrayDeepSomeValues = (arr: A, chance?: N): DeepA<A> => {
 	}, [])
 }
 
-//* Return random string, created from given strings arr
+//? Return random string, created from given strings arr
 export const joinedStrings = (parts: S[], size?: N): S => {
 	const filtered = parts.map(str => str.trim().match(/[a-z]/gi)?.join(''))
 	return arrayElements(filtered, size).join('')
 }
 
-//* Returns random objectKey
+//? Returns random objectKey
 export const objectKey = (obj: O = {}): S => {
 	const arr = Object.keys(obj)
 	return isA(arr) && arrayElement(arr)
 }
 
-//* Returns random objectValue
+//? Returns random objectValue
 export const objectValue = (obj: O = {}): Value => {
 	const arr = Object.values(obj)
 	return isA(arr) && arrayElement(arr)
 }
 
-//* Returns random objectEntry
+//? Returns random objectEntry
 export const objectEntry = (obj: O = {}): Entry => {
 	const arr = Object.entries(obj)
 	return isA(arr) && arrayElement(arr)
