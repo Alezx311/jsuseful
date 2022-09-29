@@ -67,29 +67,7 @@ export class Dates {
 	static timeISO = USEFULS.timeISO
 	static timeUTC = USEFULS.timeUTC
 }
-export class Errors {
-	static errBasic = ERRORS.errBasic
-	static errType = ERRORS.errType
-	static errEval = ERRORS.errEval
-	static errRange = ERRORS.errRange
-	static errSyntax = ERRORS.errSyntax
-	static errReference = ERRORS.errReference
 
-	static ERROR_BASIC = ERRORS.ERROR_BASIC
-	static ERROR_TYPE = ERRORS.ERROR_TYPE
-	static ERROR_EVAL = ERRORS.ERROR_EVAL
-	static ERROR_RANGE = ERRORS.ERROR_RANGE
-	static ERROR_SYNTAX = ERRORS.ERROR_SYNTAX
-	static ERROR_REFERENCE = ERRORS.ERROR_REFERENCE
-	static ERROR_TYPE_NOT_STRING = ERRORS.ERROR_TYPE_NOT_STRING
-	static ERROR_TYPE_NOT_ARRAY = ERRORS.ERROR_TYPE_NOT_ARRAY
-	static ERROR_VALUE = ERRORS.ERROR_VALUE
-	static ERROR_VALUE_NOT_DEFINED = ERRORS.ERROR_VALUE_NOT_DEFINED
-	static ERROR_VALUE_NOT_TRUTHY = ERRORS.ERROR_VALUE_NOT_TRUTHY
-	static ERROR_LENGTH = ERRORS.ERROR_LENGTH
-	static ERROR_LENGTH_SHORT = ERRORS.ERROR_LENGTH_SHORT
-	static ERROR_LENGTH_LARGE = ERRORS.ERROR_LENGTH_LARGE
-}
 export class Sources {
 	static getEntries(v: any) {
 		return [...Object.entries(v)].filter(String)
@@ -130,23 +108,26 @@ export class Sources {
 }
 
 // export class JsUseful extends JSUSEFUL {
-export const JsUseful = {
+export const JSUSEFUL_REDUCED = {
 	...ERRORS,
 	...CONSTANTS,
 	...RANDOMS,
 	...MESSAGES,
 	...USEFULS,
-	ERRORS,
-	CONSTANTS,
-	RANDOMS,
-	MESSAGES,
-	USEFULS,
+}
+export const JsUseful = {
+	...JSUSEFUL_REDUCED,
+	All: JSUSEFUL_REDUCED,
+	Errors: ERRORS,
+	Constants: CONSTANTS,
+	Randoms: RANDOMS,
+	Messages: MESSAGES,
+	Useful: USEFULS,
 	Validators,
 	Converters,
 	Arrays,
 	Objects,
 	Dates,
-	Errors,
 	Sources,
 }
 

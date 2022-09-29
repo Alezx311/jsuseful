@@ -15,58 +15,67 @@ import { isA } from './useful'
 import { A, B, DeepA, Entry, N, O, S, Value } from './types'
 
 //! <----- Constants for use as default arguments ----->
-export const SIZE = 10
-export const MIN = 0
-export const MAX = 1000000
-export const SOURCES_RANDOM_CONSTANTS = [
-	{ desc: 'SIZE', value: SIZE },
-	{ desc: 'MIN', value: MIN },
-	{ desc: 'MAX', value: MAX },
+export const RANDOM_ARRAY_SIZE = 10
+export const RANDOM_MIN = 0
+export const RANDOM_MAX = 1000000
+export const RANDOM_CONSTANTS_SOURCES = [
+	{ desc: 'SIZE', value: RANDOM_ARRAY_SIZE },
+	{ desc: 'MIN', value: RANDOM_MIN },
+	{ desc: 'MAX', value: RANDOM_MAX },
 ]
 
 //! <----- Random values for simple randomize results on each run ----->
-export const NUM = Math.random()
-export const BOOL = NUM > 0.5
-export const INT = ~~(NUM * (MAX + MIN)) - MIN
-export const STR = NUM.toString(36).substring(3)
-export const SRC = { desc: 'Random Source', value: NUM }
-export const ARR = [NUM, BOOL, INT, STR, SRC]
-export const OBJ = { NUM, BOOL, INT, STR, ARR, SRC }
-export const TEXT = JSON.stringify(OBJ)
-export const SOURCES_RANDOM_VALUES = [
-	{ desc: 'NUM', value: NUM },
-	{ desc: 'BOOL', value: BOOL },
-	{ desc: 'INT', value: INT },
-	{ desc: 'STR', value: STR },
-	{ desc: 'SRC', value: SRC },
-	{ desc: 'ARR', value: ARR },
-	{ desc: 'OBJ', value: OBJ },
-	{ desc: 'TEXT', value: TEXT },
+export const RANDOM_NUM = Math.random()
+export const RANDOM_BOOL = RANDOM_NUM > 0.5
+export const RANDOM_INT = ~~(RANDOM_NUM * (RANDOM_MAX + RANDOM_MIN)) - RANDOM_MIN
+export const RANDOM_STR = RANDOM_NUM.toString(36).substring(3)
+export const RANDOM_SRC = { desc: 'Random Source', value: RANDOM_NUM }
+export const RANDOM_ARR = [RANDOM_NUM, RANDOM_BOOL, RANDOM_INT, RANDOM_STR, RANDOM_SRC]
+export const RANDOM_OBJ = {
+	NUM: RANDOM_NUM,
+	BOOL: RANDOM_BOOL,
+	INT: RANDOM_INT,
+	STR: RANDOM_STR,
+	ARR: RANDOM_ARR,
+	SRC: RANDOM_SRC,
+}
+export const RANDOM_TEXT = JSON.stringify(RANDOM_OBJ)
+export const RANDOM_VALUES_SOURCES = [
+	{ desc: 'NUM', value: RANDOM_NUM },
+	{ desc: 'BOOL', value: RANDOM_BOOL },
+	{ desc: 'INT', value: RANDOM_INT },
+	{ desc: 'STR', value: RANDOM_STR },
+	{ desc: 'SRC', value: RANDOM_SRC },
+	{ desc: 'ARR', value: RANDOM_ARR },
+	{ desc: 'OBJ', value: RANDOM_OBJ },
+	{ desc: 'TEXT', value: RANDOM_TEXT },
 ]
 
 //! <----- Simple methods to generate random values, can be used without arguments ----->
 export const random = Math.random
 export const randomBool = (chance: N = 0.5) => random() > chance
-export const randomNum = (max: N = MAX, min: N = MIN) => random() * (max - min) + min
-export const randomInt = (max: N = MAX, min: N = MIN) => ~~(random() * max - min) + min
+export const randomNum = (max: N = RANDOM_MAX, min: N = RANDOM_MIN) => random() * (max - min) + min
+export const randomInt = (max: N = RANDOM_MAX, min: N = RANDOM_MIN) => ~~(random() * max - min) + min
 export const randomCoin = (value1: any = true, value2: any = false) => (randomBool() ? value1 : value2)
-export const randomStr = (input: N = NUM) => (input.toString(36) + randomNum().toString(36)).substring(3)
-export const randomArr = (size: N = SIZE, value: any = NUM) => Array(size).fill(value)
-export const randomMany = (size: N = SIZE, value: any = NUM) =>
+export const randomStr = (input: N = RANDOM_NUM) => (input.toString(36) + randomNum().toString(36)).substring(3)
+export const randomArr = (size: N = RANDOM_ARRAY_SIZE, value: any = RANDOM_NUM) => Array(size).fill(value)
+export const randomMany = (size: N = RANDOM_ARRAY_SIZE, value: any = RANDOM_NUM) =>
 	typeof value === 'function' ? randomArr(size).map(value) : randomArr(size, value)
-export const randomIndex = (input: A | S = ARR) => (input?.length > 1 ? randomInt(input.length - 1) : input?.length)
-export const randomElement = (input: A | S = ARR) => (input?.length > 0 ? input : [...`${input}`])?.[randomIndex(input)]
-export const randomSort = (input: A = ARR) =>
+export const randomIndex = (input: A | S = RANDOM_ARR) =>
+	input?.length > 1 ? randomInt(input.length - 1) : input?.length
+export const randomElement = (input: A | S = RANDOM_ARR) =>
+	(input?.length > 0 ? input : [...`${input}`])?.[randomIndex(input)]
+export const randomSort = (input: A = RANDOM_ARR) =>
 	(input?.length > 0 ? input : [...`${input}`]).sort(() => (randomBool() ? 1 : -1))
-export const randomShuffle = (input: A = ARR) =>
+export const randomShuffle = (input: A = RANDOM_ARR) =>
 	(input?.length > 0 ? input : [...`${input}`]).map(v => (randomBool() ? v : randomElement(input)))
-export const randomSource = (input: any = NUM) => ({ ...SRC, value: randomStr(), input })
-export const randomObject = (size: N = SIZE, input: any = ARR) =>
+export const randomSource = (input: any = RANDOM_NUM) => ({ ...RANDOM_SRC, value: randomStr(), input })
+export const randomObject = (size: N = RANDOM_ARRAY_SIZE, input: any = RANDOM_ARR) =>
 	Object.fromEntries(randomArr(size).map(() => [randomStr(), randomStr(input)]))
-export const randomKey = (value: O = OBJ) => randomElement(Object.getOwnPropertyNames(value))
-export const randomValue = (value: O = OBJ) => randomElement(Object.values(value))
-export const randomEntry = (value: O = OBJ) => randomElement(Object.entries(value))
-export const SOURCES_RANDOM_EXAMPLES = [
+export const randomKey = (value: O = RANDOM_OBJ) => randomElement(Object.getOwnPropertyNames(value))
+export const randomValue = (value: O = RANDOM_OBJ) => randomElement(Object.values(value))
+export const randomEntry = (value: O = RANDOM_OBJ) => randomElement(Object.entries(value))
+export const RANDOM_EXAMPLES_SOURCES = [
 	{ desc: 'rnd', value: random(), func: random },
 	{ desc: 'bool', value: randomBool(), func: randomBool },
 	{ desc: 'num', value: randomNum(), func: randomNum },
@@ -147,12 +156,12 @@ export const float = (min: N = 0, max: N = 1, fixedSize: N): N => {
 }
 
 //* Random integer
-export const number = (min: N = MIN, max: N = MAX): N => {
+export const number = (min: N = RANDOM_MIN, max: N = RANDOM_MAX): N => {
 	return Math.floor(random() * (max - min) + min)
 }
 
 //* Returns random power of two
-export const powerOfTwo = (min: N = MIN, max: N = 10): N => {
+export const powerOfTwo = (min: N = RANDOM_MIN, max: N = 10): N => {
 	return 2 ** number(min, max)
 }
 
@@ -171,13 +180,13 @@ export const boolean = (chance: N = 50): B => {
 }
 
 //* Returns random arr, can create element from given callback
-export const array = (size: N = SIZE, cb: any = () => number()) => {
+export const array = (size: N = RANDOM_ARRAY_SIZE, cb: any = () => number()) => {
 	const arr = Array(size).fill(1)
 	return cb ? (typeof cb === 'function' ? arr.map(cb) : arr.map(() => cb)) : arr
 }
 
 //* Returns random numbers arr
-export const numbers = (size: N = SIZE, min: N = MIN, max: N = MAX) => {
+export const numbers = (size: N = RANDOM_ARRAY_SIZE, min: N = RANDOM_MIN, max: N = RANDOM_MAX) => {
 	const arr = Array(size).fill(1)
 	return arr.map(() => number(min, max))
 }

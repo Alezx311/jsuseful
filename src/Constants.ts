@@ -4,15 +4,14 @@ import { N } from './types'
 
 //?	<----- Primitive Values ----->
 export const STR = 'Some string value'
-export const RND = Math.random()
-export const BLN = RND > 0.5
-export const NUM = ~~(RND * 1000)
+export const RND = 0.311
+export const BLN = false
+export const NUM = 237563390
 export const ARR = [STR, NUM]
 export const OBJ = { STR, NUM }
-
 export const ERR = new Error('Example Error')
 export const BIG = Number.MAX_SAFE_INTEGER
-export const FUNC = Math.random
+export const FUNC = (v: any) => Math.random()
 
 //?	<----- Values for using in Music Useful Functions ----->
 const PRIVATE_MUSIC_NOTES_CHARS = ['A', 'B', 'C', 'D', 'F', 'E', 'G'] as const
