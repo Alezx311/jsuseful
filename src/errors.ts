@@ -1,13 +1,12 @@
 //! Errors for throwing or returning in functions
-import { A, E, S } from './types'
 
 //?	<----- Create errors ----->
-export const errBasic = (msg: S = 'basic error') => new Error(msg)
-export const errType = (msg: S = 'type error') => new TypeError(msg)
-export const errEval = (msg: S = 'eval error') => new EvalError(msg)
-export const errRange = (msg: S = 'range error') => new RangeError(msg)
-export const errSyntax = (msg: S = 'syntax error') => new SyntaxError(msg)
-export const errReference = (msg: S = 'reference error') => new ReferenceError(msg)
+export const errBasic = (msg: string = 'basic error') => new Error(msg)
+export const errType = (msg: string = 'type error') => new TypeError(msg)
+export const errEval = (msg: string = 'eval error') => new EvalError(msg)
+export const errRange = (msg: string = 'range error') => new RangeError(msg)
+export const errSyntax = (msg: string = 'syntax error') => new SyntaxError(msg)
+export const errReference = (msg: string = 'reference error') => new ReferenceError(msg)
 
 //?	<----- Basic errors ----->
 export const ERROR_BASIC = new Error('Basic Error')

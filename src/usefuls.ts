@@ -25,9 +25,6 @@ export const isA = (v: any, l: N = 1) => Array.isArray(v) && v.length >= l
 //? Return true if value is true or false
 export const isB = (v: any) => typeof v === 'boolean'
 
-//? Return true if value is Error
-export const isE = (v: any) => v instanceof Error
-
 //? Returns if a value is null
 export const isNull = (v: any): v is null => v === null
 
@@ -99,10 +96,8 @@ export const arrUnical = (arr: A): A => {
 	if (!isA(arr, 1)) return []
 	return [...new Set([...arr])]
 }
-export const arrUnicals = (input: A) => [...new Set([...input])]
 export const arrMax = (input: A) => Math.max(...input.filter(Number))
 export const arrMin = (input: A) => Math.min(...input.filter(Number))
-export const arrayQuickSort = (input: A) => input.sort()
 export const arrShuffle = ([...arr]) => {
 	let m = arr.length
 	while (m) {
