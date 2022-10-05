@@ -1,6 +1,4 @@
-//? Lot of small functions, but needs refactoring first
-
-import { A, E, N, R, S } from './types'
+import { A, B, BIG, E, F, N, O, R, S, SYM } from './types'
 
 //! <----- Validation Functions ----->
 
@@ -8,40 +6,43 @@ import { A, E, N, R, S } from './types'
 export const is = (v: any) => v !== null && v !== undefined
 
 //? Return true if value is object.
-export const isF = (v: any) => typeof v === 'function' || v instanceof Function
+export const isF = (v: any): v is F => typeof v === 'function' || v instanceof Function
 
 //? Return true if value is object.
-export const isO = (v: any) => typeof v === 'object' && is(v) && !Array.isArray(v)
+export const isO = (v: any): v is O => typeof v === 'object' && is(v) && !Array.isArray(v)
 
 //? Return true if value is number and greater than given l.
-export const isN = (v: any, l: N = 1) => typeof v === 'number' && isFinite(v) && v >= l
+export const isN = (v: any, l: N = 1): v is N => typeof v === 'number' && v >= l
 
 //? Return true if value is string and value length are greater than given l.
-export const isS = (v: any, l: N = 1) => (typeof v === 'string' || v instanceof String) && v.length >= l
+export const isS = (v: any, l: N = 1): v is S => typeof v === 'string' && v.length >= l
 
 //? Return true if value is array and value length are greater than given l.
 export const isA = (v: any, l: N = 1) => Array.isArray(v) && v.length >= l
 
 //? Return true if value is true or false
-export const isB = (v: any) => typeof v === 'boolean'
+export const isB = (v: any): v is B => typeof v === 'boolean' || v instanceof Boolean
 
 //? Returns if a value is null
 export const isNull = (v: any): v is null => v === null
 
 //? Returns if a value is undefined
-export const isUndefined = (v: any): v is undefined => typeof v === 'undefined'
+export const isUnd = (v: any): v is undefined => typeof v === 'undefined' || v === undefined
 
 //? Returns if a value is Regular Expression
-export const isRegExp = (v: any): v is R => v && typeof v === 'object' && v.constructor === RegExp
+export const isRegExp = (v: any): v is R => v instanceof RegExp
 
 //? Returns if a value is Error
-export const isError = (v: any): v is E => v instanceof Error && typeof v.message !== 'undefined'
+export const isError = (v: any): v is E => v instanceof Error
 
 //? Returns if a value is Date
 export const isDate = (v: any): v is Date => v instanceof Date
 
+//? Returns if a value is BigInt
+export const isBigInt = (v?: any): v is BIG => typeof v === 'bigint' || v instanceof BigInt
+
 //? Returns if a value is Symbol
-export const isSymbol = (v: any): v is Symbol => typeof v === 'symbol'
+export const isSymbol = (v?: any): v is SYM => typeof v === 'symbol' || v instanceof Symbol
 
 //? Returns true if value.length is defined and greater than given l l.
 export const isLen = (v: any, l: N = 1) => is(v?.length) && v.length >= ~~l

@@ -1,19 +1,22 @@
 //! Constant Values for tests, examples, etc...
 
 //?	<----- Primitive Values ----->
-export const STR = 'Some string value'
-export const RND = Math.random()
-export const BLN = RND > 0.5
-export const NUM = ~~(RND * 1000)
-export const ARR = [RND, STR, NUM]
-export const OBJ = { RND: RND, STR: STR, NUM: NUM, ARR: ARR }
-export const ERR = new Error('Example Error')
-export const BIG = Number.MAX_SAFE_INTEGER
-export const SYM = Symbol('Example Symbol')
-export const FUNC = (v?: any) => ({ value: v, desc: 'Example function result' })
+export const RND: number = Math.random()
+export const STR: string = 'Some string value'
+export const BLN: boolean = RND > 0.5
+export const NUM: number = ~~(RND * 1000)
+export const OBJ: object = { RND, STR, NUM }
+export const UND: undefined = undefined
+export const NUL: null = null
+export const ARR: any[] = [RND, STR, NUM]
+export const BIG: bigint = BigInt(9007199254740991)
+export const SYM: symbol = Symbol('Example Symbol')
+export const ERR: Error = new Error('Example Error')
+export const FUN: (v?: any) => any = (v?: any) => ({ value: v, desc: 'Example function result' })
+
+export const TYPEOF = ['string', 'number', 'function', 'object', 'boolean', 'bigint', 'symbol', 'undefined']
 
 //?	<----- Values for using in Music Useful Functions ----->
-export const TYPEOF = ['string', 'number', 'function', 'object', 'boolean', 'bigint', 'symbol', 'undefined']
 export const MUSIC_NOTES_CHARS = ['A', 'B', 'C', 'D', 'F', 'E', 'G'] as const
 export const MUSIC_NOTES_BEMOLE = [...MUSIC_NOTES_CHARS, 'Bb', 'Db', 'Fb', 'Gb', 'Ab'] as const
 export const MUSIC_NOTES_SHARP = [...MUSIC_NOTES_CHARS, 'A#', 'C#', 'D#', 'E#', 'G#'] as const

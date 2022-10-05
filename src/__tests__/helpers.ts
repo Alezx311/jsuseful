@@ -1,11 +1,25 @@
 import * as Constants from '../constants'
+import * as Primitives from '../primitives'
 import * as Randoms from '../randoms'
 import * as Errors from '../errors'
 import * as Messages from '../messages'
 import * as Usefuls from '../usefuls'
 import * as Validates from '../validates'
 import * as JsUseful from '../index'
-import { A, O, S } from '../types'
+import { A, O } from '../types'
+
+describe('Main Modules', () => {
+	it('Is modules defined', () => {
+		expect(Constants).toBeDefined()
+		expect(Primitives).toBeDefined()
+		expect(Randoms).toBeDefined()
+		expect(Errors).toBeDefined()
+		expect(Messages).toBeDefined()
+		expect(Usefuls).toBeDefined()
+		expect(Validates).toBeDefined()
+		expect(JsUseful).toBeDefined()
+	})
+})
 
 type tConstants = typeof Constants
 type tErrors = typeof Errors
@@ -430,7 +444,10 @@ export const itTypeObject = (value: any, props?: string | string[]) => {
 
 	if (props) {
 		it(`Provided value should have props ${props}`, () => {
-			expect(value).toHaveProperty(props)
+			const propsArr = toArray(props)
+			propsArr.map(prop => {
+				expect(value).toHaveProperty(prop)
+			})
 		})
 	}
 }
@@ -472,24 +489,17 @@ export const itTypeBoolean = (value: any, eq?: boolean) => {
 }
 
 //? Is provided value type equal to big int?
-export const itTypeBig = (value: any, min?: number, max?: number) => {
-	const expected = 'bigint'
-
-	it(`Value ${value} type should be ${expected}`, () => {
-		expect(typeof value).toBe(expected)
+export const itTypeBig = (value: any) => {
+	it(`Value type should be bigint`, () => {
+		expect(typeof value).toBe('bigint')
 	})
+}
 
-	if (min && typeof min === 'number') {
-		it(`Value should be greater than ${min}`, () => {
-			expect(value).toBeGreaterThanOrEqual(min)
-		})
-	}
-
-	if (max && typeof min === 'number') {
-		it(`Value should be less than ${max}`, () => {
-			expect(value).toBeLessThanOrEqual(max)
-		})
-	}
+//? Is provided value equal to symbol?
+export const itTypeSymbol = (value: any) => {
+	it(`Value type should be symbol`, () => {
+		expect(typeof value).toBe('symbol')
+	})
 }
 
 //? Is provided value type equal to error?
@@ -501,17 +511,6 @@ export const itTypeError = (value: any) => {
 	it(`Value ${value} should have message property`, () => {
 		expect(value).toHaveProperty('message')
 	})
-}
-
-//? Is provided value equal to symbol?
-export const itTypeSymbol = (value: any) => {
-	it(`Value ${value} should be instance of Symbol`, () => {
-		expect(value).toBeInstanceOf(Symbol)
-	})
-
-	// it(`Value ${value} type should be symbol`, () => {
-	// 	expect(typeof value).toBe('symbol')
-	// })
 }
 
 //? Is provided value equal to function?
@@ -766,183 +765,223 @@ export const describeSources = () => {
 	})
 }
 
-describe('Constants', () => {
-	itDefined(Constants.STR)
-	itTypeString(Constants.STR)
+export const describeTotal = () => {
+	describe('Constants', () => {
+		itDefined(Constants.STR)
+		itTypeString(Constants.STR)
 
-	itDefined(Constants.RND)
-	itTypeNumber(Constants.RND)
+		itDefined(Constants.RND)
+		itTypeNumber(Constants.RND)
 
-	itDefined(Constants.BLN)
-	itTypeBoolean(Constants.BLN)
+		itDefined(Constants.BLN)
+		itTypeBoolean(Constants.BLN)
 
-	itDefined(Constants.NUM)
-	itTypeNumber(Constants.NUM)
+		itDefined(Constants.NUM)
+		itTypeNumber(Constants.NUM)
 
-	itDefined(Constants.ARR)
-	itTypeArray(Constants.ARR)
+		itDefined(Constants.ARR)
+		itTypeArray(Constants.ARR)
 
-	itDefined(Constants.OBJ)
-	itTypeObject(Constants.OBJ)
+		itDefined(Constants.OBJ)
+		itTypeObject(Constants.OBJ)
 
-	itDefined(Constants.ERR)
-	itTypeError(Constants.ERR)
+		itDefined(Constants.ERR)
+		itTypeError(Constants.ERR)
 
-	itTypeBig(Constants.BIG)
+		itTypeBig(Constants.BIG)
 
-	itTypeSymbol(Constants.SYM)
+		itTypeSymbol(Constants.SYM)
 
-	itDefined(Constants.FUNC)
-	itTypeFunction(Constants.FUNC)
+		itDefined(Constants.FUN)
+		itTypeFunction(Constants.FUN)
 
-	itArray(Constants.TYPEOF, 1, 100, 'string')
-	itArray(Constants.MUSIC_NOTES_CHARS, 1, 100, 'string')
-	itArray(Constants.MUSIC_NOTES_BEMOLE, 1, 100, 'string')
-	itArray(Constants.MUSIC_NOTES_SHARP, 1, 100, 'string')
-	itArray(Constants.MUSIC_DURATION_CHARS, 1, 100, 'string')
-	itArray(Constants.MUSIC_INTERVAL_CHARS, 1, 100, 'string')
-	itArray(Constants.MUSIC_SCALES, 1, 100, 'string')
-	itArray(Constants.COLOR_CLASS, 1, 100, 'string')
-	itArray(Constants.COLOR_NAMES, 1, 100, 'string')
-	itArray(Constants.COLOR_CODES, 1, 100, 'string')
-})
-
-describe('Randoms', () => {
-	itTypeFunction(Randoms.random)
-	itTypeFunction(Randoms.randomNum)
-	itTypeFunction(Randoms.randomInt)
-	itTypeFunction(Randoms.randomBool)
-	itTypeFunction(Randoms.randomCoin)
-	itTypeFunction(Randoms.randomStr)
-	itTypeFunction(Randoms.randomArr)
-	itTypeFunction(Randoms.randomMany)
-	itTypeFunction(Randoms.randomIndex)
-	itTypeFunction(Randoms.randomElement)
-	itTypeFunction(Randoms.randomSort)
-	itTypeFunction(Randoms.randomShuffle)
-	itTypeFunction(Randoms.randomSource)
-	itTypeFunction(Randoms.randomObject)
-	itTypeFunction(Randoms.randomKey)
-	itTypeFunction(Randoms.randomValue)
-	itTypeFunction(Randoms.randomEntry)
-	itTypeFunction(Randoms.randomTypeOf)
-	itTypeFunction(Randoms.randomColorClass)
-	itTypeFunction(Randoms.randomColorCode)
-	itTypeFunction(Randoms.randomColorName)
-	itTypeFunction(Randoms.randomMusicDuration)
-	itTypeFunction(Randoms.randomMusicInterval)
-	itTypeFunction(Randoms.randomMusicNoteBemole)
-	itTypeFunction(Randoms.randomMusicNoteChar)
-	itTypeFunction(Randoms.randomMusicNoteSharp)
-	itTypeFunction(Randoms.randomMusicScale)
-	itTypeFunction(Randoms.randomMusicOctave)
-	itTypeFunction(Randoms.randomMusicMidiIndex)
-})
-
-describe('Errors', () => {
-	itTypeFunction(Errors.errBasic)
-	itTypeFunction(Errors.errType)
-	itTypeFunction(Errors.errEval)
-	itTypeFunction(Errors.errRange)
-	itTypeFunction(Errors.errSyntax)
-	itTypeFunction(Errors.errReference)
-	itTypeError(Errors.ERROR_BASIC)
-	itTypeError(Errors.ERROR_TYPE)
-	itTypeError(Errors.ERROR_EVAL)
-	itTypeError(Errors.ERROR_RANGE)
-	itTypeError(Errors.ERROR_SYNTAX)
-	itTypeError(Errors.ERROR_REFERENCE)
-	itTypeError(Errors.ERROR_TYPE_NOT_STRING)
-	itTypeError(Errors.ERROR_TYPE_NOT_ARRAY)
-	itTypeError(Errors.ERROR_VALUE)
-	itTypeError(Errors.ERROR_VALUE_NOT_DEFINED)
-	itTypeError(Errors.ERROR_VALUE_NOT_TRUTHY)
-	itTypeError(Errors.ERROR_LENGTH)
-	itTypeError(Errors.ERROR_LENGTH_SHORT)
-	itTypeError(Errors.ERROR_LENGTH_LARGE)
-})
-
-describe('Messages', () => {
-	itTypeFunction(Messages.validate)
-	itTypeFunction(Messages.toInfo)
-	itTypeFunction(Messages.toJson)
-	itTypeFunction(Messages.toTextBlock)
-	itTypeFunction(Messages.matchChars)
-	itTypeFunction(Messages.isConstantStyle)
-	itTypeFunction(Messages.isStringLength)
-	itTypeFunction(Messages.strToArray)
-	itTypeFunction(Messages.toTextValues)
-	itTypeFunction(Messages.toTitleCase)
-	itTypeFunction(Messages.toValidChars)
-	itTypeFunction(Messages.matchWords)
-	itTypeFunction(Messages.replaceInvalidChars)
-	itTypeFunction(Messages.isUpperCase)
-	itTypeFunction(Messages.rxpFromChars)
-	itTypeFunction(Messages.rxpFromChars2)
-	itTypeFunction(Messages.dictionaryMapper)
-	itTypeFunction(Messages.dictionaryCreate)
-	itTypeFunction(Messages.dictionaryReplace)
-	itTypeFunction(Messages.toRomanNumeral)
-})
-
-describe('Usefuls', () => {
-	itTypeFunction(Usefuls.is)
-	itTypeFunction(Usefuls.isF)
-	itTypeFunction(Usefuls.isO)
-	itTypeFunction(Usefuls.isN)
-	itTypeFunction(Usefuls.isS)
-	itTypeFunction(Usefuls.isA)
-	itTypeFunction(Usefuls.isB)
-	itTypeFunction(Usefuls.isNull)
-	itTypeFunction(Usefuls.isUndefined)
-	itTypeFunction(Usefuls.isRegExp)
-	itTypeFunction(Usefuls.isError)
-	itTypeFunction(Usefuls.isDate)
-	itTypeFunction(Usefuls.isSymbol)
-	itTypeFunction(Usefuls.isLen)
-	itTypeFunction(Usefuls.isTruthy)
-	itTypeFunction(Usefuls.isOdd)
-	itTypeFunction(Usefuls.isPalindrome)
-	itTypeFunction(Usefuls.toS)
-	itTypeFunction(Usefuls.toA)
-	itTypeFunction(Usefuls.toO)
-	itTypeFunction(Usefuls.toL)
-	itTypeFunction(Usefuls.toJson)
-	itTypeFunction(Usefuls.toTypeOf)
-	itTypeFunction(Usefuls.toCallback)
-	itTypeFunction(Usefuls.arrLastIndex)
-	itTypeFunction(Usefuls.arrLast)
-	itTypeFunction(Usefuls.arrFlat)
-	itTypeFunction(Usefuls.arrUnical)
-	itTypeFunction(Usefuls.arrMax)
-	itTypeFunction(Usefuls.arrMin)
-	itTypeFunction(Usefuls.arrShuffle)
-	itTypeFunction(Usefuls.arrQuickSort)
-	itTypeFunction(Usefuls.objAssign)
-	itTypeFunction(Usefuls.objKeys)
-	itTypeFunction(Usefuls.objValues)
-	itTypeFunction(Usefuls.objEntries)
-	itTypeFunction(Usefuls.objFrom)
-	itTypeFunction(Usefuls.objCreate)
-	itTypeFunction(Usefuls.getTimePerformance)
-	itTypeFunction(Usefuls.timeStamp)
-	itTypeFunction(Usefuls.timeISO)
-	itTypeFunction(Usefuls.timeUTC)
-	itTypeFunction(Usefuls.getSourceValues)
-})
-
-describe('Validates', () => {
-	itTypeString(Validates.V1)
-	itTypeString(Validates.V2)
-	itTypeObject(Validates.RESULT)
-	itTypeFunction(Validates.getResults)
-	itTypeFunction(Validates.validateEqual)
-	itTypeFunction(Validates.validateTypes)
-	itTypeFunction(Validates.validateProps)
-})
-
-describe('JsUseful', () => {
-	SOURCES.map(src => {
-		itProperty(JsUseful, src.prop)
+		itArray(Constants.TYPEOF, 1, 100, 'string')
+		itArray(Constants.MUSIC_NOTES_CHARS, 1, 100, 'string')
+		itArray(Constants.MUSIC_NOTES_BEMOLE, 1, 100, 'string')
+		itArray(Constants.MUSIC_NOTES_SHARP, 1, 100, 'string')
+		itArray(Constants.MUSIC_DURATION_CHARS, 1, 100, 'string')
+		itArray(Constants.MUSIC_INTERVAL_CHARS, 1, 100, 'string')
+		itArray(Constants.MUSIC_SCALES, 1, 100, 'string')
+		itArray(Constants.COLOR_CLASS, 1, 100, 'string')
+		itArray(Constants.COLOR_NAMES, 1, 100, 'string')
+		itArray(Constants.COLOR_CODES, 1, 100, 'string')
 	})
-})
+
+	describe('Randoms', () => {
+		itTypeFunction(Randoms.rand)
+		itTypeFunction(Randoms.randNum)
+		itTypeFunction(Randoms.randInt)
+		itTypeFunction(Randoms.randBool)
+		itTypeFunction(Randoms.randCoin)
+		itTypeFunction(Randoms.randStr)
+		itTypeFunction(Randoms.randArr)
+		itTypeFunction(Randoms.randMany)
+		itTypeFunction(Randoms.randIndex)
+		itTypeFunction(Randoms.randElement)
+		itTypeFunction(Randoms.randSort)
+		itTypeFunction(Randoms.randShuffle)
+		itTypeFunction(Randoms.randSource)
+		itTypeFunction(Randoms.randObj)
+		itTypeFunction(Randoms.randKey)
+		itTypeFunction(Randoms.randValue)
+		itTypeFunction(Randoms.randEntry)
+		itTypeFunction(Randoms.randTypeOf)
+		itTypeFunction(Randoms.randColorClass)
+		itTypeFunction(Randoms.randColorCode)
+		itTypeFunction(Randoms.randColorName)
+		itTypeFunction(Randoms.randMusicDuration)
+		itTypeFunction(Randoms.randMusicInterval)
+		itTypeFunction(Randoms.randMusicNoteBemole)
+		itTypeFunction(Randoms.randMusicNoteChar)
+		itTypeFunction(Randoms.randMusicNoteSharp)
+		itTypeFunction(Randoms.randMusicScale)
+		itTypeFunction(Randoms.randMusicOctave)
+		itTypeFunction(Randoms.randMusicMidiIndex)
+	})
+
+	describe('Errors', () => {
+		itTypeFunction(Errors.errBasic)
+		itTypeFunction(Errors.errType)
+		itTypeFunction(Errors.errEval)
+		itTypeFunction(Errors.errRange)
+		itTypeFunction(Errors.errSyntax)
+		itTypeFunction(Errors.errReference)
+		itTypeError(Errors.ERROR_BASIC)
+		itTypeError(Errors.ERROR_TYPE)
+		itTypeError(Errors.ERROR_EVAL)
+		itTypeError(Errors.ERROR_RANGE)
+		itTypeError(Errors.ERROR_SYNTAX)
+		itTypeError(Errors.ERROR_REFERENCE)
+		itTypeError(Errors.ERROR_TYPE_NOT_STRING)
+		itTypeError(Errors.ERROR_TYPE_NOT_ARRAY)
+		itTypeError(Errors.ERROR_VALUE)
+		itTypeError(Errors.ERROR_VALUE_NOT_DEFINED)
+		itTypeError(Errors.ERROR_VALUE_NOT_TRUTHY)
+		itTypeError(Errors.ERROR_LENGTH)
+		itTypeError(Errors.ERROR_LENGTH_SHORT)
+		itTypeError(Errors.ERROR_LENGTH_LARGE)
+	})
+
+	describe('Messages', () => {
+		itTypeFunction(Messages.validate)
+		itTypeFunction(Messages.toInfo)
+		itTypeFunction(Messages.toJson)
+		itTypeFunction(Messages.toTextBlock)
+		itTypeFunction(Messages.matchChars)
+		itTypeFunction(Messages.isConstantStyle)
+		itTypeFunction(Messages.isStringLength)
+		itTypeFunction(Messages.strToArray)
+		itTypeFunction(Messages.toTextValues)
+		itTypeFunction(Messages.toTitleCase)
+		itTypeFunction(Messages.toValidChars)
+		itTypeFunction(Messages.matchWords)
+		itTypeFunction(Messages.replaceInvalidChars)
+		itTypeFunction(Messages.isUpperCase)
+		itTypeFunction(Messages.rxpFromChars)
+		itTypeFunction(Messages.rxpFromChars2)
+		itTypeFunction(Messages.dictionaryMapper)
+		itTypeFunction(Messages.dictionaryCreate)
+		itTypeFunction(Messages.dictionaryReplace)
+		itTypeFunction(Messages.toRomanNumeral)
+	})
+
+	describe('Usefuls', () => {
+		itTypeFunction(Usefuls.is)
+		itTypeFunction(Usefuls.isF)
+		itTypeFunction(Usefuls.isO)
+		itTypeFunction(Usefuls.isN)
+		itTypeFunction(Usefuls.isS)
+		itTypeFunction(Usefuls.isA)
+		itTypeFunction(Usefuls.isB)
+		itTypeFunction(Usefuls.isNull)
+		itTypeFunction(Usefuls.isUnd)
+		itTypeFunction(Usefuls.isRegExp)
+		itTypeFunction(Usefuls.isError)
+		itTypeFunction(Usefuls.isDate)
+		itTypeFunction(Usefuls.isSymbol)
+		itTypeFunction(Usefuls.isLen)
+		itTypeFunction(Usefuls.isTruthy)
+		itTypeFunction(Usefuls.isOdd)
+		itTypeFunction(Usefuls.isPalindrome)
+		itTypeFunction(Usefuls.toS)
+		itTypeFunction(Usefuls.toA)
+		itTypeFunction(Usefuls.toO)
+		itTypeFunction(Usefuls.toL)
+		itTypeFunction(Usefuls.toJson)
+		itTypeFunction(Usefuls.toTypeOf)
+		itTypeFunction(Usefuls.toCallback)
+		itTypeFunction(Usefuls.arrLastIndex)
+		itTypeFunction(Usefuls.arrLast)
+		itTypeFunction(Usefuls.arrFlat)
+		itTypeFunction(Usefuls.arrUnical)
+		itTypeFunction(Usefuls.arrMax)
+		itTypeFunction(Usefuls.arrMin)
+		itTypeFunction(Usefuls.arrShuffle)
+		itTypeFunction(Usefuls.arrQuickSort)
+		itTypeFunction(Usefuls.objAssign)
+		itTypeFunction(Usefuls.objKeys)
+		itTypeFunction(Usefuls.objValues)
+		itTypeFunction(Usefuls.objEntries)
+		itTypeFunction(Usefuls.objFrom)
+		itTypeFunction(Usefuls.objCreate)
+		itTypeFunction(Usefuls.getTimePerformance)
+		itTypeFunction(Usefuls.timeStamp)
+		itTypeFunction(Usefuls.timeISO)
+		itTypeFunction(Usefuls.timeUTC)
+		itTypeFunction(Usefuls.getSourceValues)
+	})
+
+	describe('Validates', () => {
+		itTypeString(Validates.V1)
+		itTypeString(Validates.V2)
+		itTypeObject(Validates.RESULT)
+		itTypeFunction(Validates.getResults)
+		itTypeFunction(Validates.validateEqual)
+		itTypeFunction(Validates.validateTypes)
+		itTypeFunction(Validates.validateProps)
+	})
+
+	describe('JsUseful', () => {
+		SOURCES.map(src => {
+			itProperty(JsUseful, src.prop)
+		})
+	})
+
+	describe('Primitives', () => {
+		itDefined(Primitives.STR_SRC)
+		itTypeObject(Primitives.STR_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.BLN_SRC)
+		itTypeObject(Primitives.BLN_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.NUM_SRC)
+		itTypeObject(Primitives.NUM_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.OBJ_SRC)
+		itTypeObject(Primitives.OBJ_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.BIG_SRC)
+		itTypeObject(Primitives.BIG_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.SYM_SRC)
+		itTypeObject(Primitives.SYM_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.FUN_SRC)
+		itTypeObject(Primitives.FUN_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.UND_SRC)
+		itTypeObject(Primitives.UND_SRC, ['value', 'type', 'is', 'random'])
+
+		itDefined(Primitives.PRIMITIVE_SRC)
+		itArray(Primitives.PRIMITIVE_SRC, 7, 9, 'object')
+
+		itDefined(Primitives.randSrc)
+		itTypeFunction(Primitives.randSrc)
+
+		itDefined(Primitives.everyIs)
+		itTypeFunction(Primitives.everyIs)
+
+		itDefined(Primitives.everyFn)
+		itTypeFunction(Primitives.everyFn)
+	})
+}

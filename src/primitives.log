@@ -1,0 +1,165 @@
+{ desc: 'is',
+  results: 
+   [ { type: 'string', value: 'zlypxkwj7v', result: true },
+     { type: 'boolean', value: false, result: true },
+     { type: 'number', value: 625, result: true },
+     { type: 'object', value: { value: 'hmr13p0tai' }, result: true },
+     { type: 'bigint', value: -563798625, result: true },
+     { type: 'symbol', value: Symbol(rn7ai50y1g), result: true },
+     { type: 'function', value: [λ: random], result: true },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​is​​​ ​src/primitives.ts:112:1​
+{ desc: 'isF',
+  results: 
+   [ { type: 'string', value: '8uzg11bttx', result: false },
+     { type: 'boolean', value: false, result: false },
+     { type: 'number', value: 315, result: false },
+     { type: 'object', value: { value: 'j6qv2bh02l' }, result: false },
+     { type: 'bigint', value: -1448858329, result: false },
+     { type: 'symbol', value: Symbol(k98a5f1hyn), result: false },
+     { type: 'function', value: [λ: random], result: true },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsF​​​ ​src/primitives.ts:115:1​
+{ desc: 'isO',
+  results: 
+   [ { type: 'string', value: 'ykgbxnp1o', result: false },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 646, result: false },
+     { type: 'object', value: { value: 'r5r95xp6mh' }, result: true },
+     { type: 'bigint', value: 1185957363, result: false },
+     { type: 'symbol', value: Symbol(bwz8e65jay), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsO​​​ ​src/primitives.ts:118:1​
+{ desc: 'isN',
+  results: 
+   [ { type: 'string', value: 'g95otqew8l', result: false },
+     { type: 'boolean', value: false, result: false },
+     { type: 'number', value: 731, result: true },
+     { type: 'object', value: { value: 'lgn2wcwhh' }, result: false },
+     { type: 'bigint', value: 709252425, result: false },
+     { type: 'symbol', value: Symbol(dbafywvq9a), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsN​​​ ​src/primitives.ts:121:1​
+{ desc: 'isS',
+  results: 
+   [ { type: 'string', value: 'mykhkwpy48', result: true },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 368, result: false },
+     { type: 'object', value: { value: '9r2o7pxrrk' }, result: false },
+     { type: 'bigint', value: 2021172161, result: false },
+     { type: 'symbol', value: Symbol(brfeob4kut), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsS​​​ ​src/primitives.ts:124:1​
+{ desc: 'isA',
+  results: 
+   [ { type: 'string', value: '9pyn36y9gh', result: false },
+     { type: 'boolean', value: false, result: false },
+     { type: 'number', value: 195, result: false },
+     { type: 'object', value: { value: 'pmj9mdz9zf' }, result: false },
+     { type: 'bigint', value: -1280421759, result: false },
+     { type: 'symbol', value: Symbol(akwcflk54), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsA​​​ ​src/primitives.ts:127:1​
+{ desc: 'isB',
+  results: 
+   [ { type: 'string', value: 'qwzvgcp0bk', result: false },
+     { type: 'boolean', value: true, result: true },
+     { type: 'number', value: 161, result: false },
+     { type: 'object', value: { value: '7s6s5qtoi' }, result: false },
+     { type: 'bigint', value: -2025229563, result: false },
+     { type: 'symbol', value: Symbol(d3zu5astl), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsB​​​ ​src/primitives.ts:130:1​
+{ desc: 'isNull',
+  results: 
+   [ { type: 'string', value: 'ukca70go5c', result: false },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 252, result: false },
+     { type: 'object', value: { value: 'qf7i1wqwn' }, result: false },
+     { type: 'bigint', value: 1991405579, result: false },
+     { type: 'symbol', value: Symbol(fhgrfla9ua), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsNull​​​ ​src/primitives.ts:133:1​
+{ desc: 'isUndefined',
+  results: 
+   [ { type: 'string', value: 'jcpckyivs8', result: false },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 453, result: false },
+     { type: 'object', value: { value: 'dk6vwg4x4r' }, result: false },
+     { type: 'bigint', value: -723647243, result: false },
+     { type: 'symbol', value: Symbol(abyfgxssk), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: true } ] }
+  ​​​​​at ​​​​​​​​IsUndefined​​​ ​src/primitives.ts:136:1​
+{ desc: 'isRegExp',
+  results: 
+   [ { type: 'string', value: 'eastohwzyc', result: false },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 836, result: false },
+     { type: 'object', value: { value: 'qk73oec3ke' }, result: false },
+     { type: 'bigint', value: 191761743, result: false },
+     { type: 'symbol', value: Symbol(57c7w6ml56), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsRegExp​​​ ​src/primitives.ts:139:1​
+{ desc: 'isError',
+  results: 
+   [ { type: 'string', value: 'cxgzjl7kvc', result: false },
+     { type: 'boolean', value: false, result: false },
+     { type: 'number', value: 726, result: false },
+     { type: 'object', value: { value: 'ye11cx0ok' }, result: false },
+     { type: 'bigint', value: 674698353, result: false },
+     { type: 'symbol', value: Symbol(y9kkksqf4l), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsError​​​ ​src/primitives.ts:142:1​
+{ desc: 'isDate',
+  results: 
+   [ { type: 'string', value: 'ra5j8h6av8', result: false },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 725, result: false },
+     { type: 'object', value: { value: '5zoxq5uw3t' }, result: false },
+     { type: 'bigint', value: 1412430663, result: false },
+     { type: 'symbol', value: Symbol(lr5c654cc), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsDate​​​ ​src/primitives.ts:145:1​
+{ desc: 'isBigInt',
+  results: 
+   [ { type: 'string', value: '7bbdnlhsko', result: false },
+     { type: 'boolean', value: true, result: false },
+     { type: 'number', value: 316, result: false },
+     { type: 'object', value: { value: '9c8fu2fqht' }, result: false },
+     { type: 'bigint', value: 1822393185, result: true },
+     { type: 'symbol', value: Symbol(hbjztlfq9n), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsBigInt​​​ ​src/primitives.ts:148:1​
+{ desc: 'isSymbol',
+  results: 
+   [ { type: 'string', value: 'ze8esn8i0n', result: false },
+     { type: 'boolean', value: false, result: false },
+     { type: 'number', value: 712, result: false },
+     { type: 'object', value: { value: 'c9z06w8mwb' }, result: false },
+     { type: 'bigint', value: 798636653, result: false },
+     { type: 'symbol', value: Symbol(23ptv7p0ig), result: true },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsSymbol​​​ ​src/primitives.ts:151:1​
+{ desc: 'isLen',
+  results: 
+   [ { type: 'string', value: 'z2b9tzth4q', result: true },
+     { type: 'boolean', value: false, result: false },
+     { type: 'number', value: 48, result: false },
+     { type: 'object', value: { value: '1imy1rfod7' }, result: false },
+     { type: 'bigint', value: -1276925071, result: false },
+     { type: 'symbol', value: Symbol(ph2zbsho6a), result: false },
+     { type: 'function', value: [λ: random], result: false },
+     { type: 'undefined', value: undefined, result: false } ] }
+  ​​​​​at ​​​​​​​​IsLen​​​ ​src/primitives.ts:154:1​

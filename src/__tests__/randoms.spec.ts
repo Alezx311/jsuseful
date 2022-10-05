@@ -5,7 +5,7 @@ const NUM = 42
 const ARR = [311, 'Some string element']
 const OBJ = { STR, NUM, ARR }
 
-describe('Randoms is defined', () => {
+describe('Rands is defined', () => {
 	it('Should be defined', () => {
 		expect(Randoms).toBeDefined()
 		expect(Randoms).not.toBeNull()
@@ -15,12 +15,12 @@ describe('Randoms is defined', () => {
 	})
 })
 
-describe('random', () => {
+describe('rand', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('random')
+		expect(Randoms).toHaveProperty('rand')
 	})
 
-	const value = Randoms.random
+	const value = Randoms.rand
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -30,12 +30,12 @@ describe('random', () => {
 	expect(result).toBeLessThan(1)
 })
 
-describe('randomNum', () => {
+describe('randNum', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomNum')
+		expect(Randoms).toHaveProperty('randNum')
 	})
 
-	const value = Randoms.randomNum
+	const value = Randoms.randNum
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -48,12 +48,12 @@ describe('randomNum', () => {
 	expect(result).toBeGreaterThanOrEqual(min)
 })
 
-describe('randomInt', () => {
+describe('randInt', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomInt')
+		expect(Randoms).toHaveProperty('randInt')
 	})
 
-	const value = Randoms.randomInt
+	const value = Randoms.randInt
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -66,12 +66,12 @@ describe('randomInt', () => {
 	expect(result).toBeGreaterThanOrEqual(min)
 })
 
-describe('randomBool', () => {
+describe('randBool', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomBool')
+		expect(Randoms).toHaveProperty('randBool')
 	})
 
-	const value = Randoms.randomBool
+	const value = Randoms.randBool
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -80,12 +80,12 @@ describe('randomBool', () => {
 	expect([true, false]).toContain(result)
 })
 
-describe('randomCoin', () => {
+describe('randCoin', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomCoin')
+		expect(Randoms).toHaveProperty('randCoin')
 	})
 
-	const value = Randoms.randomCoin
+	const value = Randoms.randCoin
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -94,12 +94,12 @@ describe('randomCoin', () => {
 	expect(['heads', 'tails']).toContain(result)
 })
 
-describe('randomStr', () => {
+describe('randStr', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomStr')
+		expect(Randoms).toHaveProperty('randStr')
 	})
 
-	const value = Randoms.randomStr
+	const value = Randoms.randStr
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -107,12 +107,12 @@ describe('randomStr', () => {
 	expect(typeof result).toBe('string')
 })
 
-describe('randomArr', () => {
+describe('randArr', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomArr')
+		expect(Randoms).toHaveProperty('randArr')
 	})
 
-	const value = Randoms.randomArr
+	const value = Randoms.randArr
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -123,12 +123,12 @@ describe('randomArr', () => {
 	expect(result).toHaveLength(input)
 })
 
-describe('randomMany', () => {
+describe('randMany', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMany')
+		expect(Randoms).toHaveProperty('randMany')
 	})
 
-	const value = Randoms.randomMany
+	const value = Randoms.randMany
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -141,12 +141,12 @@ describe('randomMany', () => {
 	expect(result).toContain(elem)
 })
 
-describe('randomIndex', () => {
+describe('randIndex', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomIndex')
+		expect(Randoms).toHaveProperty('randIndex')
 	})
 
-	const value = Randoms.randomIndex
+	const value = Randoms.randIndex
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -157,12 +157,12 @@ describe('randomIndex', () => {
 	expect(result).toBeLessThanOrEqual(input.length)
 })
 
-describe('randomElement', () => {
+describe('randElement', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomElement')
+		expect(Randoms).toHaveProperty('randElement')
 	})
 
-	const value = Randoms.randomElement
+	const value = Randoms.randElement
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -171,12 +171,12 @@ describe('randomElement', () => {
 	expect(input).toContain(result)
 })
 
-describe('randomSort', () => {
+describe('randSort', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomSort')
+		expect(Randoms).toHaveProperty('randSort')
 	})
 
-	const value = Randoms.randomSort
+	const value = Randoms.randSort
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -186,12 +186,12 @@ describe('randomSort', () => {
 	expect(Array.isArray(result)).toBe(true)
 })
 
-describe('randomShuffle', () => {
+describe('randShuffle', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomShuffle')
+		expect(Randoms).toHaveProperty('randShuffle')
 	})
 
-	const value = Randoms.randomShuffle
+	const value = Randoms.randShuffle
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -201,11 +201,11 @@ describe('randomShuffle', () => {
 	expect(Array.isArray(result)).toBe(true)
 })
 
-describe('randomSource', () => {
+describe('randSource', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomSource')
+		expect(Randoms).toHaveProperty('randSource')
 	})
-	const value = Randoms.randomSource
+	const value = Randoms.randSource
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -219,25 +219,25 @@ describe('randomSource', () => {
 	expect(typeof result.desc).toBe('string')
 })
 
-describe('randomObject', () => {
+describe('randObj', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomObject')
+		expect(Randoms).toHaveProperty('randObj')
 	})
 
-	const value = Randoms.randomObject
-	const result = value(7)
+	const value = Randoms.randObj
+	const result = value()
 	expect(typeof result).toBe('object')
 	expect(result).not.toBeNull()
 	expect(result).not.toBeUndefined()
 	expect(Array.isArray(result)).toBe(false)
 })
 
-describe('randomKey', () => {
+describe('randKey', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomKey')
+		expect(Randoms).toHaveProperty('randKey')
 	})
 
-	const value = Randoms.randomKey
+	const value = Randoms.randKey
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -246,12 +246,12 @@ describe('randomKey', () => {
 	expect(OBJ).toHaveProperty(result)
 })
 
-describe('randomValue', () => {
+describe('randValue', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomValue')
+		expect(Randoms).toHaveProperty('randValue')
 	})
 
-	const value = Randoms.randomValue
+	const value = Randoms.randValue
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -259,12 +259,12 @@ describe('randomValue', () => {
 	expect(Object.values(OBJ)).toContain(result)
 })
 
-describe('randomEntry', () => {
+describe('randEntry', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomEntry')
+		expect(Randoms).toHaveProperty('randEntry')
 	})
 
-	const value = Randoms.randomEntry
+	const value = Randoms.randEntry
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -274,12 +274,12 @@ describe('randomEntry', () => {
 	expect(Object.values(OBJ)).toContain(result[1])
 })
 
-describe('randomTypeOf', () => {
+describe('randTypeOf', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomTypeOf')
+		expect(Randoms).toHaveProperty('randTypeOf')
 	})
 
-	const value = Randoms.randomTypeOf
+	const value = Randoms.randTypeOf
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -289,12 +289,12 @@ describe('randomTypeOf', () => {
 	expect(['string', 'number', 'function', 'object', 'boolean', 'bigint', 'symbol', 'undefined']).toContain(result)
 })
 
-describe('randomColorClass', () => {
+describe('randColorClass', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomColorClass')
+		expect(Randoms).toHaveProperty('randColorClass')
 	})
 
-	const value = Randoms.randomColorClass
+	const value = Randoms.randColorClass
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -303,12 +303,12 @@ describe('randomColorClass', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomColorCode', () => {
+describe('randColorCode', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomColorCode')
+		expect(Randoms).toHaveProperty('randColorCode')
 	})
 
-	const value = Randoms.randomColorCode
+	const value = Randoms.randColorCode
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -317,12 +317,12 @@ describe('randomColorCode', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomColorName', () => {
+describe('randColorName', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomColorName')
+		expect(Randoms).toHaveProperty('randColorName')
 	})
 
-	const value = Randoms.randomColorName
+	const value = Randoms.randColorName
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -331,12 +331,12 @@ describe('randomColorName', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicDuration', () => {
+describe('randMusicDuration', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicDuration')
+		expect(Randoms).toHaveProperty('randMusicDuration')
 	})
 
-	const value = Randoms.randomMusicDuration
+	const value = Randoms.randMusicDuration
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -345,12 +345,12 @@ describe('randomMusicDuration', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicInterval', () => {
+describe('randMusicInterval', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicInterval')
+		expect(Randoms).toHaveProperty('randMusicInterval')
 	})
 
-	const value = Randoms.randomMusicInterval
+	const value = Randoms.randMusicInterval
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -359,12 +359,12 @@ describe('randomMusicInterval', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicNoteBemole', () => {
+describe('randMusicNoteBemole', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicNoteBemole')
+		expect(Randoms).toHaveProperty('randMusicNoteBemole')
 	})
 
-	const value = Randoms.randomMusicNoteBemole
+	const value = Randoms.randMusicNoteBemole
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -373,12 +373,12 @@ describe('randomMusicNoteBemole', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicNoteChar', () => {
+describe('randMusicNoteChar', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicNoteChar')
+		expect(Randoms).toHaveProperty('randMusicNoteChar')
 	})
 
-	const value = Randoms.randomMusicNoteChar
+	const value = Randoms.randMusicNoteChar
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -387,12 +387,12 @@ describe('randomMusicNoteChar', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicNoteSharp', () => {
+describe('randMusicNoteSharp', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicNoteSharp')
+		expect(Randoms).toHaveProperty('randMusicNoteSharp')
 	})
 
-	const value = Randoms.randomMusicNoteSharp
+	const value = Randoms.randMusicNoteSharp
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -401,12 +401,12 @@ describe('randomMusicNoteSharp', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicScale', () => {
+describe('randMusicScale', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicScale')
+		expect(Randoms).toHaveProperty('randMusicScale')
 	})
 
-	const value = Randoms.randomMusicScale
+	const value = Randoms.randMusicScale
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -415,12 +415,12 @@ describe('randomMusicScale', () => {
 	expect(result.length).toBeGreaterThan(0)
 })
 
-describe('randomMusicOctave', () => {
+describe('randMusicOctave', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicOctave')
+		expect(Randoms).toHaveProperty('randMusicOctave')
 	})
 
-	const value = Randoms.randomMusicOctave
+	const value = Randoms.randMusicOctave
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 
@@ -430,12 +430,12 @@ describe('randomMusicOctave', () => {
 	expect(result).toBeLessThanOrEqual(8)
 })
 
-describe('randomMusicMidiIndex', () => {
+describe('randMusicMidiIndex', () => {
 	it('Should be property', () => {
-		expect(Randoms).toHaveProperty('randomMusicMidiIndex')
+		expect(Randoms).toHaveProperty('randMusicMidiIndex')
 	})
 
-	const value = Randoms.randomMusicMidiIndex
+	const value = Randoms.randMusicMidiIndex
 	expect(value).toBeInstanceOf(Function)
 	expect(typeof value).toBe('function')
 

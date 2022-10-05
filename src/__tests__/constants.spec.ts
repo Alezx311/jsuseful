@@ -65,12 +65,12 @@ describe('Constants -> OBJ', () => {
 	})
 })
 
-describe('Constants -> FUNC', () => {
+describe('Constants -> FUN', () => {
 	it('Should be defined', () => {
-		expect(Constants).toHaveProperty('FUNC')
+		expect(Constants).toHaveProperty('FUN')
 	})
 
-	const value = Constants.FUNC
+	const value = Constants.FUN
 
 	it('Should be function', () => {
 		expect(typeof value).toBe('function')

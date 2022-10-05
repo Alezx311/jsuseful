@@ -10,7 +10,7 @@ import {
 	MUSIC_SCALES,
 	TYPEOF,
 } from './constants'
-import { A, B, DeepA, N, O, S } from './types'
+import { A, BIG, F, N, NO, O, S, SYM } from './types'
 
 export type tCOLOR_CLASS = typeof COLOR_CLASS[N]
 export type tCOLOR_CODES = typeof COLOR_CODES[N]
@@ -39,12 +39,12 @@ const SIZE = 10
 const MIN = 0
 const MAX = 1000000
 
-//! <----- Random values for simple randomize results on each run ----->
+//! <----- rand values for simple randize results on each run ----->
 const NUM = Math.random()
 const BOOL = NUM > 0.5
 const INT = ~~(NUM * (MAX + MIN)) - MIN
 const STR = NUM.toString(36).substring(3)
-const SRC = { desc: 'Random Source', value: NUM }
+const SRC = { desc: 'rand Source', value: NUM }
 const ARR = [NUM, BOOL, INT, STR, SRC]
 const OBJ = {
 	NUM: NUM,
@@ -55,39 +55,43 @@ const OBJ = {
 	SRC: SRC,
 }
 
-//! <----- Simple methods to generate random values, can be used without arguments ----->
-export const random = Math.random
-export const randomNum = (max: N = MAX, min: N = MIN) => random() * (max - min) + min
-export const randomInt = (max: N = MAX, min: N = MIN) => ~~(random() * max - min) + min
-export const randomBool = (chance: N = 0.5) => random() > chance
-export const randomCoin = (value1: any = true, value2: any = false) => (randomBool() ? value1 : value2)
-export const randomStr = (input: N = NUM) => (input.toString(36) + randomNum().toString(36)).substring(3)
-export const randomArr = (size: N = SIZE, value: any = NUM) => Array(size).fill(value)
-export const randomMany = (size: N = SIZE, value: any = NUM) =>
-	typeof value === 'function' ? randomArr(size).map(value) : randomArr(size, value)
-export const randomIndex = (input: A | S = ARR) => (input?.length > 1 ? randomInt(input.length - 1) : input?.length)
-export const randomElement = (input: A | S = ARR) => (input?.length > 0 ? input : [...`${input}`])?.[randomIndex(input)]
-export const randomSort = (input: A = ARR) =>
-	(input?.length > 0 ? input : [...`${input}`]).sort(() => (randomBool() ? 1 : -1))
-export const randomShuffle = (input: A = ARR) =>
-	(input?.length > 0 ? input : [...`${input}`]).map(v => (randomBool() ? v : randomElement(input)))
-export const randomSource = (input: any = NUM) => ({ ...SRC, value: randomStr(), input })
-export const randomObject = (size: N = SIZE, input: any = ARR) =>
-	Object.fromEntries(randomArr(size).map(() => [randomStr(), randomStr(input)]))
-export const randomKey = (value: O = OBJ) => randomElement(Object.getOwnPropertyNames(value))
-export const randomValue = (value: O = OBJ) => randomElement(Object.values(value))
-export const randomEntry = (value: O = OBJ) => randomElement(Object.entries(value))
+//! <----- Simple methods to generate rand values, can be used without arguments ----->
+export const rand = Math.random
+export const randNum = (max: N = MAX, min: N = MIN) => rand() * (max - min) + min
+export const randInt = (max: N = MAX, min: N = MIN) => ~~(rand() * max - min) + min
+export const randBool = (chance: N = 0.5) => rand() > chance
+export const randCoin = (value1: any = true, value2: any = false) => (randBool() ? value1 : value2)
+export const randStr = (input: N = NUM) => (input.toString(36) + randNum().toString(36)).substring(3)
+export const randArr = (size: N = SIZE, value: any = NUM) => Array(size).fill(value)
+export const randMany = (size: N = SIZE, value: any = NUM) =>
+	typeof value === 'function' ? randArr(size).map(value) : randArr(size, value)
+export const randIndex = (input: A | S = ARR) => (input?.length > 1 ? randInt(input.length - 1) : input?.length)
+export const randElement = (input: A | S = ARR) => (input?.length > 0 ? input : [...`${input}`])?.[randIndex(input)]
+export const randSort = (input: A = ARR) =>
+	(input?.length > 0 ? input : [...`${input}`]).sort(() => (randBool() ? 1 : -1))
+export const randShuffle = (input: A = ARR) =>
+	(input?.length > 0 ? input : [...`${input}`]).map(v => (randBool() ? v : randElement(input)))
+export const randSource = (input: any = NUM) => ({ ...SRC, value: randStr(), input })
+export const randObj = () => Object({ value: randStr() })
+export const randKey = (value: O = OBJ) => randElement(Object.getOwnPropertyNames(value))
+export const randValue = (value: O = OBJ) => randElement(Object.values(value))
+export const randEntry = (value: O = OBJ) => randElement(Object.entries(value))
+export const randBig = (): BIG => BigInt(randInt(Number.MAX_SAFE_INTEGER))
+export const randSym = (): SYM => Symbol(randStr())
+export const randFunc = (): F<NO, N> => rand
 
-//! <----- Simple methods to generate random elements ----->
-export const randomTypeOf = () => randomElement(ARRAY_TYPEOF)
-export const randomColorClass = () => randomElement(ARRAY_COLOR_CLASS)
-export const randomColorCode = () => randomElement(ARRAY_COLOR_CODES)
-export const randomColorName = () => randomElement(ARRAY_COLOR_NAMES)
-export const randomMusicDuration = () => randomElement(ARRAY_MUSIC_DURATION_CHARS)
-export const randomMusicInterval = () => randomElement(ARRAY_MUSIC_INTERVAL_CHARS)
-export const randomMusicNoteBemole = () => randomElement(ARRAY_MUSIC_NOTES_BEMOLE)
-export const randomMusicNoteChar = () => randomElement(ARRAY_MUSIC_NOTES_CHARS)
-export const randomMusicNoteSharp = () => randomElement(ARRAY_MUSIC_NOTES_SHARP)
-export const randomMusicScale = () => randomElement(ARRAY_MUSIC_SCALES)
-export const randomMusicOctave = (max: N = 8) => randomInt(max)
-export const randomMusicMidiIndex = (max: N = 127) => randomInt(max)
+//! <----- Primitive type generators ----->
+
+//! <----- Simple methods to generate rand elements ----->
+export const randTypeOf = () => randElement(ARRAY_TYPEOF)
+export const randColorClass = () => randElement(ARRAY_COLOR_CLASS)
+export const randColorCode = () => randElement(ARRAY_COLOR_CODES)
+export const randColorName = () => randElement(ARRAY_COLOR_NAMES)
+export const randMusicDuration = () => randElement(ARRAY_MUSIC_DURATION_CHARS)
+export const randMusicInterval = () => randElement(ARRAY_MUSIC_INTERVAL_CHARS)
+export const randMusicNoteBemole = () => randElement(ARRAY_MUSIC_NOTES_BEMOLE)
+export const randMusicNoteChar = () => randElement(ARRAY_MUSIC_NOTES_CHARS)
+export const randMusicNoteSharp = () => randElement(ARRAY_MUSIC_NOTES_SHARP)
+export const randMusicScale = () => randElement(ARRAY_MUSIC_SCALES)
+export const randMusicOctave = (max: N = 8) => randInt(max)
+export const randMusicMidiIndex = (max: N = 127) => randInt(max)

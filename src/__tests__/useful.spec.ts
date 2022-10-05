@@ -212,13 +212,13 @@ describe('Usefuls -> isNull', () => {
 	})
 })
 
-describe('Usefuls -> isUndefined', () => {
-	const prop = 'isUndefined'
+describe('Usefuls -> isUnd', () => {
+	const prop = 'isUnd'
 
 	it('is defined', () => {
 		expect(Usefuls).toHaveProperty(prop)
 	})
-	const value = Usefuls.isUndefined
+	const value = Usefuls.isUnd
 
 	it('Must be function', () => {
 		expect(typeof value).toBe('function')

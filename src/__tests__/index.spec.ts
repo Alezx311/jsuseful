@@ -1,6 +1,8 @@
 import * as moduleTotal from '../index'
 import moduleDefault from '../index'
-import { JsUseful as moduleNamed, Errors, Constants, Randoms, Messages, Usefuls } from '../index'
+import { JsUseful as moduleNamed } from '../index'
+
+const { Errors, Constants, Randoms, Messages, Usefuls, Validates, Primitives } = moduleDefault
 
 describe('JsUseful default import is defined', () => {
 	it('Should be defined', () => {
@@ -41,57 +43,14 @@ describe('JsUseful total import is defined', () => {
 	})
 })
 
-describe('Errors import is defined', () => {
+const modules = ['Errors', 'Constants', 'Randoms', 'Messages', 'Usefuls', 'Validates', 'Primitives']
+
+describe('Modules is defined', () => {
 	it('Should be defined', () => {
-		const value = Errors
-		expect(value).toBeDefined()
-		expect(typeof value).toBe('object')
-
-		const KEYS = Object.keys(value)
-		expect(KEYS.length).toBeGreaterThan(0)
-	})
-})
-
-describe('Constants import is defined', () => {
-	it('Should be defined', () => {
-		const value = Constants
-		expect(value).toBeDefined()
-		expect(typeof value).toBe('object')
-
-		const KEYS = Object.keys(value)
-		expect(KEYS.length).toBeGreaterThan(0)
-	})
-})
-
-describe('Randoms import is defined', () => {
-	it('Should be defined', () => {
-		const value = Randoms
-		expect(value).toBeDefined()
-		expect(typeof value).toBe('object')
-
-		const KEYS = Object.keys(value)
-		expect(KEYS.length).toBeGreaterThan(0)
-	})
-})
-
-describe('Messages import is defined', () => {
-	it('Should be defined', () => {
-		const value = Messages
-		expect(value).toBeDefined()
-		expect(typeof value).toBe('object')
-
-		const KEYS = Object.keys(value)
-		expect(KEYS.length).toBeGreaterThan(0)
-	})
-})
-
-describe('Usefuls import is defined', () => {
-	it('Should be defined', () => {
-		const value = Usefuls
-		expect(value).toBeDefined()
-		expect(typeof value).toBe('object')
-
-		const KEYS = Object.keys(value)
-		expect(KEYS.length).toBeGreaterThan(0)
+		modules.map(prop => {
+			expect(moduleDefault).toHaveProperty(prop)
+			expect(moduleNamed).toHaveProperty(prop)
+			expect(moduleTotal).toHaveProperty(prop)
+		})
 	})
 })
